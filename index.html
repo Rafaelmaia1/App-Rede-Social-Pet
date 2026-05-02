@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>PawApp — Rede Social Pet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       WRAPPER — simula tela de celular
+  ══════════════════════════════════ -->
+  <div class="device-wrap">
+    <div class="device-frame">
+
+      <!-- STATUS BAR -->
+      <div class="status-bar">
+        <span class="status-time">9:41</span>
+        <div class="status-icons">
+          <svg width="16" height="11" viewBox="0 0 16 11"><rect x="0" y="3" width="3" height="8" rx="1" fill="currentColor" opacity=".4"/><rect x="4.5" y="2" width="3" height="9" rx="1" fill="currentColor" opacity=".6"/><rect x="9" y="0" width="3" height="11" rx="1" fill="currentColor"/><rect x="13.5" y="1" width="2" height="9" rx=".5" fill="none" stroke="currentColor" stroke-width="1"/><rect x="15.2" y="3.5" width="1" height="4" rx=".5" fill="currentColor"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.5C10.8 2.5 13.3 3.7 15 5.7L16 4.5C14 2.2 11.2 0.8 8 0.8C4.8 0.8 2 2.2 0 4.5L1 5.7C2.7 3.7 5.2 2.5 8 2.5Z" fill="currentColor"/><path d="M8 5.5C9.9 5.5 11.6 6.3 12.8 7.6L13.8 6.5C12.3 4.9 10.3 4 8 4C5.7 4 3.7 4.9 2.2 6.5L3.2 7.6C4.4 6.3 6.1 5.5 8 5.5Z" fill="currentColor" opacity=".7"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor" stroke-opacity=".35"/><rect x="22.5" y="3.5" width="2" height="5" rx="1" fill="currentColor" fill-opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/></svg>
+        </div>
+      </div>
+
+      <!-- ═══ TELA 1: ONBOARDING ═══ -->
+      <div class="screen active" id="screen-onboarding">
+        <div class="onboard-bg">
+          <div class="onboard-blob blob1"></div>
+          <div class="onboard-blob blob2"></div>
+          <div class="onboard-blob blob3"></div>
+        </div>
+        <div class="onboard-content">
+          <div class="onboard-paw">🐾</div>
+          <h1 class="onboard-title">Paw<span>App</span></h1>
+          <p class="onboard-tagline">A rede social que seu<br/><em>pet</em> merece</p>
+
+          <div class="onboard-cards">
+            <div class="ocard" style="--delay:.1s">
+              <span>📸</span>
+              <p>Compartilhe momentos do seu pet</p>
+            </div>
+            <div class="ocard" style="--delay:.2s">
+              <span>🩺</span>
+              <p>Conecte-se com veterinários</p>
+            </div>
+            <div class="ocard" style="--delay:.3s">
+              <span>🐶</span>
+              <p>Encontre amigos de 4 patas</p>
+            </div>
+          </div>
+
+          <div class="onboard-actions">
+            <button class="btn-primary" onclick="showScreen('login')">Criar conta</button>
+            <button class="btn-ghost" onclick="showScreen('login')">Já tenho conta</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ TELA 2: LOGIN ═══ -->
+      <div class="screen" id="screen-login">
+        <div class="login-header">
+          <button class="back-btn" onclick="showScreen('onboarding')">←</button>
+          <div class="login-logo">🐾 PawApp</div>
+        </div>
+        <div class="login-body">
+          <h2 class="login-title">Bem-vindo<br/>de volta 👋</h2>
+          <p class="login-sub">Entre para ver o que seus amigos pets estão fazendo</p>
+
+          <div class="form-group">
+            <label>E-mail</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input type="email" placeholder="seu@email.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Senha</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input type="password" placeholder="••••••••" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label class="check-label">
+              <input type="checkbox" checked /> Lembrar de mim
+            </label>
+            <a class="link-text">Esqueci a senha</a>
+          </div>
+
+          <button class="btn-primary" onclick="showScreen('home')">Entrar</button>
+
+          <div class="divider"><span>ou continue com</span></div>
+
+          <div class="social-btns">
+            <button class="social-btn">🇬 Google</button>
+            <button class="social-btn">🍎 Apple</button>
+          </div>
+
+          <p class="register-link">Não tem conta? <a onclick="showScreen('home')">Cadastrar</a></p>
+        </div>
+      </div>
+
+      <!-- ═══ TELA 3: HOME / FEED ═══ -->
+      <div class="screen" id="screen-home">
+        <!-- TOP BAR -->
+        <div class="top-bar">
+          <div class="top-logo">🐾 PawApp</div>
+          <div class="top-actions">
+            <button class="icon-btn" onclick="showScreen('notif')">
+              🔔
+              <span class="badge">3</span>
+            </button>
+            <button class="icon-btn">💬</button>
+          </div>
+        </div>
+
+        <!-- STORIES -->
+        <div class="stories-wrap">
+          <div class="story-add">
+            <div class="story-avatar story-add-avatar">+</div>
+            <span>Seu pet</span>
+          </div>
+          <div class="story-item">
+            <div class="story-avatar" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">🐶</div>
+            <span>Thor</span>
+          </div>
+          <div class="story-item">
+            <div class="story-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">🐱</div>
+            <span>Mimi</span>
+          </div>
+          <div class="story-item">
+            <div class="story-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">🐹</div>
+            <span>Bolinha</span>
+          </div>
+          <div class="story-item">
+            <div class="story-avatar" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">🦜</div>
+            <span>Louro</span>
+          </div>
+          <div class="story-item">
+            <div class="story-avatar" style="background:linear-gradient(135deg,#f472b6,#db2777)">🐰</div>
+            <span>Fofinha</span>
+          </div>
+        </div>
+
+        <!-- FEED -->
+        <div class="feed">
+
+          <!-- POST 1 -->
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-avatar" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">🐶</div>
+              <div class="post-info">
+                <div class="post-name">Thor <span class="post-breed">Golden Retriever</span></div>
+                <div class="post-location">📍 São Paulo, SP · 2h atrás</div>
+              </div>
+              <button class="follow-btn">+ Seguir</button>
+            </div>
+            <div class="post-img post-img-1">
+              <div class="post-img-overlay">🌞 Dia de parque!</div>
+            </div>
+            <div class="post-caption">Que dia incrível no parque! Fiz novos amigos e corri muito 🐾🌿 <span class="post-hashtag">#GoldenLife #Parque #VidaDePet</span></div>
+            <div class="post-actions">
+              <button class="action-btn liked" id="like-1" onclick="toggleLike('like-1','count-1')">
+                ❤️ <span id="count-1">142</span>
+              </button>
+              <button class="action-btn">💬 38</button>
+              <button class="action-btn">🔗 Compartilhar</button>
+              <button class="action-btn save-btn">🔖</button>
+            </div>
+          </div>
+
+          <!-- POST 2 -->
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">🐱</div>
+              <div class="post-info">
+                <div class="post-name">Mimi <span class="post-breed">Siamesa</span></div>
+                <div class="post-location">📍 Rio de Janeiro, RJ · 5h atrás</div>
+              </div>
+              <button class="follow-btn following">Seguindo</button>
+            </div>
+            <div class="post-img post-img-2">
+              <div class="post-img-overlay">😴 Hora da soneca</div>
+            </div>
+            <div class="post-caption">Senhor do lar descansando depois de uma tarde produtiva de miar 😌👑 <span class="post-hashtag">#GatoRainha #CatLife</span></div>
+            <div class="post-actions">
+              <button class="action-btn" id="like-2" onclick="toggleLike('like-2','count-2')">
+                🤍 <span id="count-2">89</span>
+              </button>
+              <button class="action-btn">💬 21</button>
+              <button class="action-btn">🔗 Compartilhar</button>
+              <button class="action-btn save-btn">🔖</button>
+            </div>
+          </div>
+
+          <!-- ANUNCIO VET -->
+          <div class="vet-card">
+            <div class="vet-badge">⭐ Patrocinado</div>
+            <div class="vet-content">
+              <div class="vet-icon">🩺</div>
+              <div>
+                <div class="vet-name">Clínica PetSaúde</div>
+                <div class="vet-desc">Consulta gratuita para novos pacientes. Agende agora!</div>
+              </div>
+            </div>
+            <button class="btn-primary btn-sm">Agendar</button>
+          </div>
+
+        </div>
+
+        <!-- BOTTOM NAV -->
+        <div class="bottom-nav">
+          <button class="nav-btn active" onclick="showScreen('home')">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Início</span>
+          </button>
+          <button class="nav-btn" onclick="showScreen('explore')">
+            <span class="nav-icon">🔍</span>
+            <span class="nav-label">Explorar</span>
+          </button>
+          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')">
+            <div class="nav-add">+</div>
+          </button>
+          <button class="nav-btn" onclick="showScreen('notif')">
+            <span class="nav-icon">🔔</span>
+            <span class="nav-label">Notif.</span>
+          </button>
+          <button class="nav-btn" onclick="showScreen('profile')">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Perfil</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══ TELA 4: EXPLORAR ═══ -->
+      <div class="screen" id="screen-explore">
+        <div class="top-bar">
+          <div class="top-logo">🔍 Explorar</div>
+          <button class="icon-btn">🎛️</button>
+        </div>
+
+        <div class="explore-search">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Buscar pets, raças, locais..." class="search-input" />
+          </div>
+        </div>
+
+        <div class="explore-filters">
+          <button class="filter-chip active">Todos</button>
+          <button class="filter-chip">🐶 Cães</button>
+          <button class="filter-chip">🐱 Gatos</button>
+          <button class="filter-chip">🦜 Aves</button>
+          <button class="filter-chip">🐠 Peixes</button>
+          <button class="filter-chip">🐹 Roedores</button>
+        </div>
+
+        <div class="explore-section-title">Em Alta 🔥</div>
+        <div class="explore-grid">
+          <div class="grid-item g-tall" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">
+            <div class="grid-emoji">🐶</div>
+            <div class="grid-label">Golden Retrievers</div>
+          </div>
+          <div class="grid-item" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">
+            <div class="grid-emoji">🐱</div>
+            <div class="grid-label">Gatos Persa</div>
+          </div>
+          <div class="grid-item" style="background:linear-gradient(135deg,#34d399,#059669)">
+            <div class="grid-emoji">🐹</div>
+            <div class="grid-label">Hamsters</div>
+          </div>
+          <div class="grid-item g-wide" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">
+            <div class="grid-emoji">🏖️</div>
+            <div class="grid-label">Pets na Praia</div>
+          </div>
+          <div class="grid-item" style="background:linear-gradient(135deg,#f472b6,#db2777)">
+            <div class="grid-emoji">🎀</div>
+            <div class="grid-label">Fantasias Pet</div>
+          </div>
+        </div>
+
+        <div class="explore-section-title">Veterinários Próximos 📍</div>
+        <div class="vet-list">
+          <div class="vet-list-item">
+            <div class="vet-list-avatar">🩺</div>
+            <div class="vet-list-info">
+              <div class="vet-list-name">Dr. Carlos Silva</div>
+              <div class="vet-list-meta">⭐ 4.9 · 1,2 km · Disponível agora</div>
+            </div>
+            <button class="btn-xs">Ver</button>
+          </div>
+          <div class="vet-list-item">
+            <div class="vet-list-avatar">🏥</div>
+            <div class="vet-list-info">
+              <div class="vet-list-name">Clínica PetVida</div>
+              <div class="vet-list-meta">⭐ 4.7 · 2,4 km · Abre às 8h</div>
+            </div>
+            <button class="btn-xs">Ver</button>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="nav-btn" onclick="showScreen('home')"><span class="nav-icon">🏠</span><span class="nav-label">Início</span></button>
+          <button class="nav-btn active" onclick="showScreen('explore')"><span class="nav-icon">🔍</span><span class="nav-label">Explorar</span></button>
+          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')"><div class="nav-add">+</div></button>
+          <button class="nav-btn" onclick="showScreen('notif')"><span class="nav-icon">🔔</span><span class="nav-label">Notif.</span></button>
+          <button class="nav-btn" onclick="showScreen('profile')"><span class="nav-icon">👤</span><span class="nav-label">Perfil</span></button>
+        </div>
+      </div>
+
+      <!-- ═══ TELA 5: NOVO POST ═══ -->
+      <div class="screen" id="screen-newpost">
+        <div class="top-bar">
+          <button class="back-btn" onclick="showScreen('home')">✕</button>
+          <div class="top-logo">Novo Post</div>
+          <button class="btn-xs btn-publish" onclick="showScreen('home')">Publicar</button>
+        </div>
+
+        <div class="newpost-body">
+          <div class="newpost-user">
+            <div class="post-avatar" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">🐶</div>
+            <div>
+              <div class="newpost-name">Você</div>
+              <select class="pet-select">
+                <option>🐶 Thor</option>
+                <option>🐾 Meu pet</option>
+              </select>
+            </div>
+          </div>
+
+          <textarea class="newpost-text" placeholder="O que seu pet está aprontando? 🐾"></textarea>
+
+          <div class="newpost-preview">
+            <div class="preview-placeholder">
+              <span>📷</span>
+              <p>Toque para adicionar foto ou vídeo</p>
+            </div>
+          </div>
+
+          <div class="newpost-tools">
+            <button class="tool-btn">📷 Foto</button>
+            <button class="tool-btn">🎥 Vídeo</button>
+            <button class="tool-btn">📍 Local</button>
+            <button class="tool-btn">🏷️ Marcar pet</button>
+          </div>
+
+          <div class="newpost-section">
+            <div class="newpost-section-label">Adicionar tags</div>
+            <div class="tags-wrap">
+              <div class="tag-chip">#VidaDePet ✕</div>
+              <div class="tag-chip">#PetBr ✕</div>
+              <div class="tag-add">+ Tag</div>
+            </div>
+          </div>
+
+          <div class="newpost-section">
+            <div class="newpost-section-label">Visibilidade</div>
+            <div class="visibility-opts">
+              <label class="vis-opt active"><input type="radio" name="vis" checked /> 🌎 Público</label>
+              <label class="vis-opt"><input type="radio" name="vis" /> 👥 Seguidores</label>
+              <label class="vis-opt"><input type="radio" name="vis" /> 🔒 Privado</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ TELA 6: NOTIFICAÇÕES ═══ -->
+      <div class="screen" id="screen-notif">
+        <div class="top-bar">
+          <button class="back-btn" onclick="showScreen('home')">←</button>
+          <div class="top-logo">Notificações</div>
+          <button class="icon-btn" style="font-size:.75rem;color:var(--accent)">Limpar</button>
+        </div>
+
+        <div class="notif-section-label">Hoje</div>
+        <div class="notif-list">
+          <div class="notif-item notif-new">
+            <div class="notif-avatar" style="background:linear-gradient(135deg,#f472b6,#db2777)">🐰</div>
+            <div class="notif-text"><strong>Fofinha</strong> curtiu sua foto no parque ❤️</div>
+            <div class="notif-time">2min</div>
+          </div>
+          <div class="notif-item notif-new">
+            <div class="notif-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">🐹</div>
+            <div class="notif-text"><strong>Bolinha</strong> começou a seguir Thor 🐾</div>
+            <div class="notif-time">18min</div>
+          </div>
+          <div class="notif-item notif-new">
+            <div class="notif-avatar">🩺</div>
+            <div class="notif-text"><strong>Dr. Carlos</strong> respondeu seu comentário sobre vacinas</div>
+            <div class="notif-time">1h</div>
+          </div>
+        </div>
+
+        <div class="notif-section-label">Esta semana</div>
+        <div class="notif-list">
+          <div class="notif-item">
+            <div class="notif-avatar" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">🦜</div>
+            <div class="notif-text"><strong>Louro</strong> curtiu 3 fotos suas ❤️❤️❤️</div>
+            <div class="notif-time">2d</div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">🐱</div>
+            <div class="notif-text"><strong>Mimi</strong> mencionou Thor num post</div>
+            <div class="notif-time">3d</div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-avatar">🏥</div>
+            <div class="notif-text"><strong>Clínica PetVida</strong> tem novidades! Veja o que há de novo.</div>
+            <div class="notif-time">5d</div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="nav-btn" onclick="showScreen('home')"><span class="nav-icon">🏠</span><span class="nav-label">Início</span></button>
+          <button class="nav-btn" onclick="showScreen('explore')"><span class="nav-icon">🔍</span><span class="nav-label">Explorar</span></button>
+          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')"><div class="nav-add">+</div></button>
+          <button class="nav-btn active" onclick="showScreen('notif')"><span class="nav-icon">🔔</span><span class="nav-label">Notif.</span></button>
+          <button class="nav-btn" onclick="showScreen('profile')"><span class="nav-icon">👤</span><span class="nav-label">Perfil</span></button>
+        </div>
+      </div>
+
+      <!-- ═══ TELA 7: PERFIL ═══ -->
+      <div class="screen" id="screen-profile">
+        <div class="profile-header-bg">
+          <div class="profile-header-blob"></div>
+          <div class="top-bar top-bar-transparent">
+            <button class="back-btn" onclick="showScreen('home')">←</button>
+            <div class="top-logo" style="color:#fff">Meu Perfil</div>
+            <button class="icon-btn" style="color:#fff">⚙️</button>
+          </div>
+
+          <div class="profile-info">
+            <div class="profile-pic">🐶</div>
+            <div class="profile-name">Thor <span class="profile-badge">✔️</span></div>
+            <div class="profile-breed">Golden Retriever · 3 anos · SP</div>
+            <div class="profile-bio">🌿 Amante de parques e petiscos<br/>🎾 Atleta profissional de buscar bolinha</div>
+          </div>
+
+          <div class="profile-stats">
+            <div class="stat-item">
+              <div class="stat-value">248</div>
+              <div class="stat-label">Posts</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-value">4.2k</div>
+              <div class="stat-label">Seguidores</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-value">312</div>
+              <div class="stat-label">Seguindo</div>
+            </div>
+          </div>
+
+          <div class="profile-btns">
+            <button class="btn-primary btn-sm">✏️ Editar Perfil</button>
+            <button class="btn-ghost btn-sm">📤 Compartilhar</button>
+          </div>
+        </div>
+
+        <!-- SAÚDE PET -->
+        <div class="health-strip">
+          <div class="health-item">
+            <div class="health-icon">💉</div>
+            <div class="health-label">Vacinas</div>
+            <div class="health-val ok">Em dia</div>
+          </div>
+          <div class="health-item">
+            <div class="health-icon">⚖️</div>
+            <div class="health-label">Peso</div>
+            <div class="health-val">28 kg</div>
+          </div>
+          <div class="health-item">
+            <div class="health-icon">🩺</div>
+            <div class="health-label">Consulta</div>
+            <div class="health-val warn">Em 5 dias</div>
+          </div>
+        </div>
+
+        <!-- TABS PERFIL -->
+        <div class="profile-tabs">
+          <button class="ptab active" onclick="switchPTab(this,'pgrid')">⊞ Posts</button>
+          <button class="ptab" onclick="switchPTab(this,'preels')">▶ Reels</button>
+          <button class="ptab" onclick="switchPTab(this,'psaved')">🔖 Salvos</button>
+        </div>
+
+        <div class="ptab-content active" id="pgrid">
+          <div class="posts-grid">
+            <div class="grid-post" style="background:linear-gradient(135deg,#f6d365,#fda085)">🌞</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">🎾</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#84fab0,#8fd3f4)">🌊</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#f093fb,#f5576c)">🐾</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">🧊</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">🌿</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#fa709a,#fee140)">😍</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#a1c4fd,#c2e9fb)">☁️</div>
+            <div class="grid-post" style="background:linear-gradient(135deg,#fd7043,#ff8a65)">🔥</div>
+          </div>
+        </div>
+
+        <div class="ptab-content" id="preels">
+          <div class="empty-state">▶ Em breve: seus Reels aqui</div>
+        </div>
+        <div class="ptab-content" id="psaved">
+          <div class="empty-state">🔖 Nenhum post salvo ainda</div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="nav-btn" onclick="showScreen('home')"><span class="nav-icon">🏠</span><span class="nav-label">Início</span></button>
+          <button class="nav-btn" onclick="showScreen('explore')"><span class="nav-icon">🔍</span><span class="nav-label">Explorar</span></button>
+          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')"><div class="nav-add">+</div></button>
+          <button class="nav-btn" onclick="showScreen('notif')"><span class="nav-icon">🔔</span><span class="nav-label">Notif.</span></button>
+          <button class="nav-btn active" onclick="showScreen('profile')"><span class="nav-icon">👤</span><span class="nav-label">Perfil</span></button>
+        </div>
+      </div>
+
+    </div><!-- /device-frame -->
+
+    <!-- SCREEN LABELS -->
+    <div class="screen-nav-labels">
+      <button onclick="showScreen('onboarding')" class="snav-btn">Onboarding</button>
+      <button onclick="showScreen('login')" class="snav-btn">Login</button>
+      <button onclick="showScreen('home')" class="snav-btn">Feed</button>
+      <button onclick="showScreen('explore')" class="snav-btn">Explorar</button>
+      <button onclick="showScreen('newpost')" class="snav-btn">Novo Post</button>
+      <button onclick="showScreen('notif')" class="snav-btn">Notificações</button>
+      <button onclick="showScreen('profile')" class="snav-btn">Perfil</button>
+    </div>
+
+  </div><!-- /device-wrap -->
+
+  <script src="app.js"></script>
+</body>
+</html>
