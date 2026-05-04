@@ -1,541 +1,1307 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PawApp — Rede Social Pet</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ══════════════════════════════════
-       WRAPPER — simula tela de celular
-  ══════════════════════════════════ -->
-  <div class="device-wrap">
-    <div class="device-frame">
+<!-- ══════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="logo-icon">🐾</span>
+    <span class="logo-text">Paw<strong>App</strong></span>
+  </div>
 
-      <!-- STATUS BAR -->
-      <div class="status-bar">
-        <span class="status-time">9:41</span>
-        <div class="status-icons">
-          <svg width="16" height="11" viewBox="0 0 16 11"><rect x="0" y="3" width="3" height="8" rx="1" fill="currentColor" opacity=".4"/><rect x="4.5" y="2" width="3" height="9" rx="1" fill="currentColor" opacity=".6"/><rect x="9" y="0" width="3" height="11" rx="1" fill="currentColor"/><rect x="13.5" y="1" width="2" height="9" rx=".5" fill="none" stroke="currentColor" stroke-width="1"/><rect x="15.2" y="3.5" width="1" height="4" rx=".5" fill="currentColor"/></svg>
-          <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.5C10.8 2.5 13.3 3.7 15 5.7L16 4.5C14 2.2 11.2 0.8 8 0.8C4.8 0.8 2 2.2 0 4.5L1 5.7C2.7 3.7 5.2 2.5 8 2.5Z" fill="currentColor"/><path d="M8 5.5C9.9 5.5 11.6 6.3 12.8 7.6L13.8 6.5C12.3 4.9 10.3 4 8 4C5.7 4 3.7 4.9 2.2 6.5L3.2 7.6C4.4 6.3 6.1 5.5 8 5.5Z" fill="currentColor" opacity=".7"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/></svg>
-          <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor" stroke-opacity=".35"/><rect x="22.5" y="3.5" width="2" height="5" rx="1" fill="currentColor" fill-opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/></svg>
-        </div>
-      </div>
+  <nav class="sidebar-nav">
+    <button class="nav-item active" data-section="feed">
+      <span class="nav-icon">🏠</span><span class="nav-label">Feed</span>
+    </button>
+    <button class="nav-item" data-section="mapa">
+      <span class="nav-icon">📍</span><span class="nav-label">Explorar Perto</span>
+    </button>
+    <button class="nav-item" data-section="lojas">
+      <span class="nav-icon">🛒</span><span class="nav-label">Lojas & Promoções</span>
+    </button>
+    <button class="nav-item" data-section="consulta">
+      <span class="nav-icon">🩺</span><span class="nav-label">Consulta Online</span>
+    </button>
+    <button class="nav-item" data-section="mensagens">
+      <span class="nav-icon">💬</span><span class="nav-label">Mensagens</span>
+      <span class="nav-badge">3</span>
+    </button>
+    <button class="nav-item" data-section="agenda">
+      <span class="nav-icon">📅</span><span class="nav-label">Agenda</span>
+    </button>
+    <button class="nav-item" data-section="meu-pet">
+      <span class="nav-icon">🐶</span><span class="nav-label">Meu Pet</span>
+    </button>
+    <button class="nav-item" data-section="locais">
+      <span class="nav-icon">🌿</span><span class="nav-label">Locais Pet</span>
+    </button>
 
-      <!-- ═══ TELA 1: ONBOARDING ═══ -->
-      <div class="screen active" id="screen-onboarding">
-        <div class="onboard-bg">
-          <div class="onboard-blob blob1"></div>
-          <div class="onboard-blob blob2"></div>
-          <div class="onboard-blob blob3"></div>
-        </div>
-        <div class="onboard-content">
-          <div class="onboard-paw">🐾</div>
-          <h1 class="onboard-title">Paw<span>App</span></h1>
-          <p class="onboard-tagline">A rede social que seu<br/><em>pet</em> merece</p>
+    <div class="nav-divider"></div>
+    <div class="nav-group-label">Diferenciais</div>
 
-          <div class="onboard-cards">
-            <div class="ocard" style="--delay:.1s">
-              <span>📸</span>
-              <p>Compartilhe momentos do seu pet</p>
-            </div>
-            <div class="ocard" style="--delay:.2s">
-              <span>🩺</span>
-              <p>Conecte-se com veterinários</p>
-            </div>
-            <div class="ocard" style="--delay:.3s">
-              <span>🐶</span>
-              <p>Encontre amigos de 4 patas</p>
-            </div>
-          </div>
+    <button class="nav-item" data-section="sos">
+      <span class="nav-icon">🆘</span><span class="nav-label">SOS Pet</span>
+    </button>
+    <button class="nav-item" data-section="petsitter">
+      <span class="nav-icon">🧳</span><span class="nav-label">Pet Sitter</span>
+    </button>
+    <button class="nav-item" data-section="passaporte">
+      <span class="nav-icon">📋</span><span class="nav-label">Passaporte Digital</span>
+    </button>
+  </nav>
 
-          <div class="onboard-actions">
-            <button class="btn-primary" onclick="showScreen('login')">Criar conta</button>
-            <button class="btn-ghost" onclick="showScreen('login')">Já tenho conta</button>
-          </div>
-        </div>
-      </div>
+  <div class="sidebar-user">
+    <div class="user-avatar">🐕</div>
+    <div class="user-info">
+      <div class="user-name">Thor</div>
+      <div class="user-sub">Golden Retriever</div>
+    </div>
+    <button class="settings-btn">⚙️</button>
+  </div>
+</aside>
 
-      <!-- ═══ TELA 2: LOGIN ═══ -->
-      <div class="screen" id="screen-login">
-        <div class="login-header">
-          <button class="back-btn" onclick="showScreen('onboarding')">←</button>
-          <div class="login-logo">🐾 PawApp</div>
-        </div>
-        <div class="login-body">
-          <h2 class="login-title">Bem-vindo<br/>de volta 👋</h2>
-          <p class="login-sub">Entre para ver o que seus amigos pets estão fazendo</p>
+<!-- ══════════════════════════════════════
+     TOP BAR MOBILE
+══════════════════════════════════════ -->
+<header class="mobile-header">
+  <button class="hamburger" id="hamburger">☰</button>
+  <span class="mobile-logo">🐾 PawApp</span>
+  <button class="icon-btn">🔔</button>
+</header>
 
-          <div class="form-group">
-            <label>E-mail</label>
-            <div class="input-wrap">
-              <span class="input-icon">✉️</span>
-              <input type="email" placeholder="seu@email.com" />
-            </div>
-          </div>
+<!-- ══════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════ -->
+<main class="main-content">
 
-          <div class="form-group">
-            <label>Senha</label>
-            <div class="input-wrap">
-              <span class="input-icon">🔒</span>
-              <input type="password" placeholder="••••••••" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label class="check-label">
-              <input type="checkbox" checked /> Lembrar de mim
-            </label>
-            <a class="link-text">Esqueci a senha</a>
-          </div>
-
-          <button class="btn-primary" onclick="showScreen('home')">Entrar</button>
-
-          <div class="divider"><span>ou continue com</span></div>
-
-          <div class="social-btns">
-            <button class="social-btn">🇬 Google</button>
-            <button class="social-btn">🍎 Apple</button>
-          </div>
-
-          <p class="register-link">Não tem conta? <a onclick="showScreen('home')">Cadastrar</a></p>
-        </div>
-      </div>
-
-      <!-- ═══ TELA 3: HOME / FEED ═══ -->
-      <div class="screen" id="screen-home">
-        <!-- TOP BAR -->
-        <div class="top-bar">
-          <div class="top-logo">🐾 PawApp</div>
-          <div class="top-actions">
-            <button class="icon-btn" onclick="showScreen('notif')">
-              🔔
-              <span class="badge">3</span>
-            </button>
-            <button class="icon-btn">💬</button>
-          </div>
-        </div>
-
-        <!-- STORIES -->
-        <div class="stories-wrap">
-          <div class="story-add">
-            <div class="story-avatar story-add-avatar">+</div>
-            <span>Seu pet</span>
-          </div>
-          <div class="story-item">
-            <div class="story-avatar" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">🐶</div>
-            <span>Thor</span>
-          </div>
-          <div class="story-item">
-            <div class="story-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">🐱</div>
-            <span>Mimi</span>
-          </div>
-          <div class="story-item">
-            <div class="story-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">🐹</div>
-            <span>Bolinha</span>
-          </div>
-          <div class="story-item">
-            <div class="story-avatar" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">🦜</div>
-            <span>Louro</span>
-          </div>
-          <div class="story-item">
-            <div class="story-avatar" style="background:linear-gradient(135deg,#f472b6,#db2777)">🐰</div>
-            <span>Fofinha</span>
-          </div>
-        </div>
-
-        <!-- FEED -->
-        <div class="feed">
-
-          <!-- POST 1 -->
-          <div class="post-card">
-            <div class="post-header">
-              <div class="post-avatar" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">🐶</div>
-              <div class="post-info">
-                <div class="post-name">Thor <span class="post-breed">Golden Retriever</span></div>
-                <div class="post-location">📍 São Paulo, SP · 2h atrás</div>
-              </div>
-              <button class="follow-btn">+ Seguir</button>
-            </div>
-            <div class="post-img post-img-1">
-              <div class="post-img-overlay">🌞 Dia de parque!</div>
-            </div>
-            <div class="post-caption">Que dia incrível no parque! Fiz novos amigos e corri muito 🐾🌿 <span class="post-hashtag">#GoldenLife #Parque #VidaDePet</span></div>
-            <div class="post-actions">
-              <button class="action-btn liked" id="like-1" onclick="toggleLike('like-1','count-1')">
-                ❤️ <span id="count-1">142</span>
-              </button>
-              <button class="action-btn">💬 38</button>
-              <button class="action-btn">🔗 Compartilhar</button>
-              <button class="action-btn save-btn">🔖</button>
-            </div>
-          </div>
-
-          <!-- POST 2 -->
-          <div class="post-card">
-            <div class="post-header">
-              <div class="post-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">🐱</div>
-              <div class="post-info">
-                <div class="post-name">Mimi <span class="post-breed">Siamesa</span></div>
-                <div class="post-location">📍 Rio de Janeiro, RJ · 5h atrás</div>
-              </div>
-              <button class="follow-btn following">Seguindo</button>
-            </div>
-            <div class="post-img post-img-2">
-              <div class="post-img-overlay">😴 Hora da soneca</div>
-            </div>
-            <div class="post-caption">Senhor do lar descansando depois de uma tarde produtiva de miar 😌👑 <span class="post-hashtag">#GatoRainha #CatLife</span></div>
-            <div class="post-actions">
-              <button class="action-btn" id="like-2" onclick="toggleLike('like-2','count-2')">
-                🤍 <span id="count-2">89</span>
-              </button>
-              <button class="action-btn">💬 21</button>
-              <button class="action-btn">🔗 Compartilhar</button>
-              <button class="action-btn save-btn">🔖</button>
-            </div>
-          </div>
-
-          <!-- ANUNCIO VET -->
-          <div class="vet-card">
-            <div class="vet-badge">⭐ Patrocinado</div>
-            <div class="vet-content">
-              <div class="vet-icon">🩺</div>
-              <div>
-                <div class="vet-name">Clínica PetSaúde</div>
-                <div class="vet-desc">Consulta gratuita para novos pacientes. Agende agora!</div>
-              </div>
-            </div>
-            <button class="btn-primary btn-sm">Agendar</button>
-          </div>
-
-        </div>
-
-        <!-- BOTTOM NAV -->
-        <div class="bottom-nav">
-          <button class="nav-btn active" onclick="showScreen('home')">
-            <span class="nav-icon">🏠</span>
-            <span class="nav-label">Início</span>
-          </button>
-          <button class="nav-btn" onclick="showScreen('explore')">
-            <span class="nav-icon">🔍</span>
-            <span class="nav-label">Explorar</span>
-          </button>
-          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')">
-            <div class="nav-add">+</div>
-          </button>
-          <button class="nav-btn" onclick="showScreen('notif')">
-            <span class="nav-icon">🔔</span>
-            <span class="nav-label">Notif.</span>
-          </button>
-          <button class="nav-btn" onclick="showScreen('profile')">
-            <span class="nav-icon">👤</span>
-            <span class="nav-label">Perfil</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- ═══ TELA 4: EXPLORAR ═══ -->
-      <div class="screen" id="screen-explore">
-        <div class="top-bar">
-          <div class="top-logo">🔍 Explorar</div>
-          <button class="icon-btn">🎛️</button>
-        </div>
-
-        <div class="explore-search">
-          <div class="search-wrap">
-            <span class="search-icon">🔍</span>
-            <input type="text" placeholder="Buscar pets, raças, locais..." class="search-input" />
-          </div>
-        </div>
-
-        <div class="explore-filters">
-          <button class="filter-chip active">Todos</button>
-          <button class="filter-chip">🐶 Cães</button>
-          <button class="filter-chip">🐱 Gatos</button>
-          <button class="filter-chip">🦜 Aves</button>
-          <button class="filter-chip">🐠 Peixes</button>
-          <button class="filter-chip">🐹 Roedores</button>
-        </div>
-
-        <div class="explore-section-title">Em Alta 🔥</div>
-        <div class="explore-grid">
-          <div class="grid-item g-tall" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">
-            <div class="grid-emoji">🐶</div>
-            <div class="grid-label">Golden Retrievers</div>
-          </div>
-          <div class="grid-item" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">
-            <div class="grid-emoji">🐱</div>
-            <div class="grid-label">Gatos Persa</div>
-          </div>
-          <div class="grid-item" style="background:linear-gradient(135deg,#34d399,#059669)">
-            <div class="grid-emoji">🐹</div>
-            <div class="grid-label">Hamsters</div>
-          </div>
-          <div class="grid-item g-wide" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">
-            <div class="grid-emoji">🏖️</div>
-            <div class="grid-label">Pets na Praia</div>
-          </div>
-          <div class="grid-item" style="background:linear-gradient(135deg,#f472b6,#db2777)">
-            <div class="grid-emoji">🎀</div>
-            <div class="grid-label">Fantasias Pet</div>
-          </div>
-        </div>
-
-        <div class="explore-section-title">Veterinários Próximos 📍</div>
-        <div class="vet-list">
-          <div class="vet-list-item">
-            <div class="vet-list-avatar">🩺</div>
-            <div class="vet-list-info">
-              <div class="vet-list-name">Dr. Carlos Silva</div>
-              <div class="vet-list-meta">⭐ 4.9 · 1,2 km · Disponível agora</div>
-            </div>
-            <button class="btn-xs">Ver</button>
-          </div>
-          <div class="vet-list-item">
-            <div class="vet-list-avatar">🏥</div>
-            <div class="vet-list-info">
-              <div class="vet-list-name">Clínica PetVida</div>
-              <div class="vet-list-meta">⭐ 4.7 · 2,4 km · Abre às 8h</div>
-            </div>
-            <button class="btn-xs">Ver</button>
-          </div>
-        </div>
-
-        <div class="bottom-nav">
-          <button class="nav-btn" onclick="showScreen('home')"><span class="nav-icon">🏠</span><span class="nav-label">Início</span></button>
-          <button class="nav-btn active" onclick="showScreen('explore')"><span class="nav-icon">🔍</span><span class="nav-label">Explorar</span></button>
-          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')"><div class="nav-add">+</div></button>
-          <button class="nav-btn" onclick="showScreen('notif')"><span class="nav-icon">🔔</span><span class="nav-label">Notif.</span></button>
-          <button class="nav-btn" onclick="showScreen('profile')"><span class="nav-icon">👤</span><span class="nav-label">Perfil</span></button>
-        </div>
-      </div>
-
-      <!-- ═══ TELA 5: NOVO POST ═══ -->
-      <div class="screen" id="screen-newpost">
-        <div class="top-bar">
-          <button class="back-btn" onclick="showScreen('home')">✕</button>
-          <div class="top-logo">Novo Post</div>
-          <button class="btn-xs btn-publish" onclick="showScreen('home')">Publicar</button>
-        </div>
-
-        <div class="newpost-body">
-          <div class="newpost-user">
-            <div class="post-avatar" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">🐶</div>
-            <div>
-              <div class="newpost-name">Você</div>
-              <select class="pet-select">
-                <option>🐶 Thor</option>
-                <option>🐾 Meu pet</option>
-              </select>
-            </div>
-          </div>
-
-          <textarea class="newpost-text" placeholder="O que seu pet está aprontando? 🐾"></textarea>
-
-          <div class="newpost-preview">
-            <div class="preview-placeholder">
-              <span>📷</span>
-              <p>Toque para adicionar foto ou vídeo</p>
-            </div>
-          </div>
-
-          <div class="newpost-tools">
-            <button class="tool-btn">📷 Foto</button>
-            <button class="tool-btn">🎥 Vídeo</button>
-            <button class="tool-btn">📍 Local</button>
-            <button class="tool-btn">🏷️ Marcar pet</button>
-          </div>
-
-          <div class="newpost-section">
-            <div class="newpost-section-label">Adicionar tags</div>
-            <div class="tags-wrap">
-              <div class="tag-chip">#VidaDePet ✕</div>
-              <div class="tag-chip">#PetBr ✕</div>
-              <div class="tag-add">+ Tag</div>
-            </div>
-          </div>
-
-          <div class="newpost-section">
-            <div class="newpost-section-label">Visibilidade</div>
-            <div class="visibility-opts">
-              <label class="vis-opt active"><input type="radio" name="vis" checked /> 🌎 Público</label>
-              <label class="vis-opt"><input type="radio" name="vis" /> 👥 Seguidores</label>
-              <label class="vis-opt"><input type="radio" name="vis" /> 🔒 Privado</label>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ TELA 6: NOTIFICAÇÕES ═══ -->
-      <div class="screen" id="screen-notif">
-        <div class="top-bar">
-          <button class="back-btn" onclick="showScreen('home')">←</button>
-          <div class="top-logo">Notificações</div>
-          <button class="icon-btn" style="font-size:.75rem;color:var(--accent)">Limpar</button>
-        </div>
-
-        <div class="notif-section-label">Hoje</div>
-        <div class="notif-list">
-          <div class="notif-item notif-new">
-            <div class="notif-avatar" style="background:linear-gradient(135deg,#f472b6,#db2777)">🐰</div>
-            <div class="notif-text"><strong>Fofinha</strong> curtiu sua foto no parque ❤️</div>
-            <div class="notif-time">2min</div>
-          </div>
-          <div class="notif-item notif-new">
-            <div class="notif-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">🐹</div>
-            <div class="notif-text"><strong>Bolinha</strong> começou a seguir Thor 🐾</div>
-            <div class="notif-time">18min</div>
-          </div>
-          <div class="notif-item notif-new">
-            <div class="notif-avatar">🩺</div>
-            <div class="notif-text"><strong>Dr. Carlos</strong> respondeu seu comentário sobre vacinas</div>
-            <div class="notif-time">1h</div>
-          </div>
-        </div>
-
-        <div class="notif-section-label">Esta semana</div>
-        <div class="notif-list">
-          <div class="notif-item">
-            <div class="notif-avatar" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">🦜</div>
-            <div class="notif-text"><strong>Louro</strong> curtiu 3 fotos suas ❤️❤️❤️</div>
-            <div class="notif-time">2d</div>
-          </div>
-          <div class="notif-item">
-            <div class="notif-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">🐱</div>
-            <div class="notif-text"><strong>Mimi</strong> mencionou Thor num post</div>
-            <div class="notif-time">3d</div>
-          </div>
-          <div class="notif-item">
-            <div class="notif-avatar">🏥</div>
-            <div class="notif-text"><strong>Clínica PetVida</strong> tem novidades! Veja o que há de novo.</div>
-            <div class="notif-time">5d</div>
-          </div>
-        </div>
-
-        <div class="bottom-nav">
-          <button class="nav-btn" onclick="showScreen('home')"><span class="nav-icon">🏠</span><span class="nav-label">Início</span></button>
-          <button class="nav-btn" onclick="showScreen('explore')"><span class="nav-icon">🔍</span><span class="nav-label">Explorar</span></button>
-          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')"><div class="nav-add">+</div></button>
-          <button class="nav-btn active" onclick="showScreen('notif')"><span class="nav-icon">🔔</span><span class="nav-label">Notif.</span></button>
-          <button class="nav-btn" onclick="showScreen('profile')"><span class="nav-icon">👤</span><span class="nav-label">Perfil</span></button>
-        </div>
-      </div>
-
-      <!-- ═══ TELA 7: PERFIL ═══ -->
-      <div class="screen" id="screen-profile">
-        <div class="profile-header-bg">
-          <div class="profile-header-blob"></div>
-          <div class="top-bar top-bar-transparent">
-            <button class="back-btn" onclick="showScreen('home')">←</button>
-            <div class="top-logo" style="color:#fff">Meu Perfil</div>
-            <button class="icon-btn" style="color:#fff">⚙️</button>
-          </div>
-
-          <div class="profile-info">
-            <div class="profile-pic">🐶</div>
-            <div class="profile-name">Thor <span class="profile-badge">✔️</span></div>
-            <div class="profile-breed">Golden Retriever · 3 anos · SP</div>
-            <div class="profile-bio">🌿 Amante de parques e petiscos<br/>🎾 Atleta profissional de buscar bolinha</div>
-          </div>
-
-          <div class="profile-stats">
-            <div class="stat-item">
-              <div class="stat-value">248</div>
-              <div class="stat-label">Posts</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <div class="stat-value">4.2k</div>
-              <div class="stat-label">Seguidores</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <div class="stat-value">312</div>
-              <div class="stat-label">Seguindo</div>
-            </div>
-          </div>
-
-          <div class="profile-btns">
-            <button class="btn-primary btn-sm">✏️ Editar Perfil</button>
-            <button class="btn-ghost btn-sm">📤 Compartilhar</button>
-          </div>
-        </div>
-
-        <!-- SAÚDE PET -->
-        <div class="health-strip">
-          <div class="health-item">
-            <div class="health-icon">💉</div>
-            <div class="health-label">Vacinas</div>
-            <div class="health-val ok">Em dia</div>
-          </div>
-          <div class="health-item">
-            <div class="health-icon">⚖️</div>
-            <div class="health-label">Peso</div>
-            <div class="health-val">28 kg</div>
-          </div>
-          <div class="health-item">
-            <div class="health-icon">🩺</div>
-            <div class="health-label">Consulta</div>
-            <div class="health-val warn">Em 5 dias</div>
-          </div>
-        </div>
-
-        <!-- TABS PERFIL -->
-        <div class="profile-tabs">
-          <button class="ptab active" onclick="switchPTab(this,'pgrid')">⊞ Posts</button>
-          <button class="ptab" onclick="switchPTab(this,'preels')">▶ Reels</button>
-          <button class="ptab" onclick="switchPTab(this,'psaved')">🔖 Salvos</button>
-        </div>
-
-        <div class="ptab-content active" id="pgrid">
-          <div class="posts-grid">
-            <div class="grid-post" style="background:linear-gradient(135deg,#f6d365,#fda085)">🌞</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">🎾</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#84fab0,#8fd3f4)">🌊</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#f093fb,#f5576c)">🐾</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">🧊</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">🌿</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#fa709a,#fee140)">😍</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#a1c4fd,#c2e9fb)">☁️</div>
-            <div class="grid-post" style="background:linear-gradient(135deg,#fd7043,#ff8a65)">🔥</div>
-          </div>
-        </div>
-
-        <div class="ptab-content" id="preels">
-          <div class="empty-state">▶ Em breve: seus Reels aqui</div>
-        </div>
-        <div class="ptab-content" id="psaved">
-          <div class="empty-state">🔖 Nenhum post salvo ainda</div>
-        </div>
-
-        <div class="bottom-nav">
-          <button class="nav-btn" onclick="showScreen('home')"><span class="nav-icon">🏠</span><span class="nav-label">Início</span></button>
-          <button class="nav-btn" onclick="showScreen('explore')"><span class="nav-icon">🔍</span><span class="nav-label">Explorar</span></button>
-          <button class="nav-btn nav-center-btn" onclick="showScreen('newpost')"><div class="nav-add">+</div></button>
-          <button class="nav-btn" onclick="showScreen('notif')"><span class="nav-icon">🔔</span><span class="nav-label">Notif.</span></button>
-          <button class="nav-btn active" onclick="showScreen('profile')"><span class="nav-icon">👤</span><span class="nav-label">Perfil</span></button>
-        </div>
-      </div>
-
-    </div><!-- /device-frame -->
-
-    <!-- SCREEN LABELS -->
-    <div class="screen-nav-labels">
-      <button onclick="showScreen('onboarding')" class="snav-btn">Onboarding</button>
-      <button onclick="showScreen('login')" class="snav-btn">Login</button>
-      <button onclick="showScreen('home')" class="snav-btn">Feed</button>
-      <button onclick="showScreen('explore')" class="snav-btn">Explorar</button>
-      <button onclick="showScreen('newpost')" class="snav-btn">Novo Post</button>
-      <button onclick="showScreen('notif')" class="snav-btn">Notificações</button>
-      <button onclick="showScreen('profile')" class="snav-btn">Perfil</button>
+  <!-- ─── SEÇÃO: FEED ─── -->
+  <section class="section active" id="section-feed">
+    <div class="section-header">
+      <h1 class="section-title">Feed <span>🏠</span></h1>
+      <button class="btn-primary btn-sm" onclick="goSection('feed')">
+        + Nova Publicação
+      </button>
     </div>
 
-  </div><!-- /device-wrap -->
+    <div class="feed-layout">
+      <!-- Stories -->
+      <div class="stories-row">
+        <div class="story-add">
+          <div class="story-ring add-ring">+</div>
+          <span>Seu pet</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring" style="--c1:#f6a35c;--c2:#e8604c">🐶</div><span>Thor</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring" style="--c1:#a78bfa;--c2:#7c3aed">🐱</div><span>Mimi</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring" style="--c1:#34d399;--c2:#059669">🐹</div><span>Bolinha</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring" style="--c1:#60a5fa;--c2:#2563eb">🦜</div><span>Louro</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring" style="--c1:#f472b6;--c2:#db2777">🐰</div><span>Fofinha</span>
+        </div>
+        <div class="story-item">
+          <div class="story-ring" style="--c1:#fbbf24;--c2:#d97706">🐠</div><span>Nemo</span>
+        </div>
+      </div>
 
-  <script src="app.js"></script>
+      <div class="feed-cols">
+        <!-- Posts -->
+        <div class="posts-col">
+
+          <!-- POST 1 -->
+          <article class="post-card">
+            <div class="post-head">
+              <div class="post-av" style="background:linear-gradient(135deg,#f6a35c,#e8604c)">🐶</div>
+              <div class="post-meta">
+                <div class="post-name">Thor <span class="breed-chip">Golden Retriever</span></div>
+                <div class="post-loc">📍 Parque Ibirapuera, SP · 2h atrás</div>
+              </div>
+              <button class="follow-btn" onclick="toggleFollow(this)">+ Seguir</button>
+              <button class="more-btn">···</button>
+            </div>
+            <div class="post-media grad-1">
+              <div class="media-tag">🌞 Dia de parque!</div>
+            </div>
+            <div class="post-body">
+              <p class="post-text">Que dia incrível no parque! Fiz novos amigos e corri muito 🐾🌿</p>
+              <p class="post-tags">#GoldenLife #Parque #VidaDePet #SãoPaulo</p>
+              <div class="post-actions">
+                <button class="act-btn liked" id="like-1" onclick="toggleLike('like-1','lc-1')">❤️ <span id="lc-1">142</span></button>
+                <button class="act-btn">💬 38</button>
+                <button class="act-btn">↗️ Compartilhar</button>
+                <button class="act-btn ml-auto">🔖</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROMO CARD -->
+          <article class="promo-inline">
+            <span class="promo-tag">⭐ Patrocinado</span>
+            <div class="promo-row">
+              <div class="promo-icon">🛍️</div>
+              <div>
+                <div class="promo-name">PetShop Vida Animal</div>
+                <div class="promo-desc">🔥 50% OFF em rações premium — só esta semana!</div>
+              </div>
+              <button class="btn-xs" onclick="goSection('lojas')">Ver oferta</button>
+            </div>
+          </article>
+
+          <!-- POST 2 -->
+          <article class="post-card">
+            <div class="post-head">
+              <div class="post-av" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">🐱</div>
+              <div class="post-meta">
+                <div class="post-name">Mimi <span class="breed-chip">Siamesa</span></div>
+                <div class="post-loc">📍 Rio de Janeiro, RJ · 5h atrás</div>
+              </div>
+              <button class="follow-btn following" onclick="toggleFollow(this)">Seguindo</button>
+              <button class="more-btn">···</button>
+            </div>
+            <div class="post-media grad-2">
+              <div class="media-tag">👑 Rainha do lar</div>
+            </div>
+            <div class="post-body">
+              <p class="post-text">Descanso merecido depois de vigiar a casa a tarde toda 😌👑</p>
+              <p class="post-tags">#CatLife #GatoRainha #RJ</p>
+              <div class="post-actions">
+                <button class="act-btn" id="like-2" onclick="toggleLike('like-2','lc-2')">🤍 <span id="lc-2">89</span></button>
+                <button class="act-btn">💬 21</button>
+                <button class="act-btn">↗️ Compartilhar</button>
+                <button class="act-btn ml-auto">🔖</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 3 -->
+          <article class="post-card">
+            <div class="post-head">
+              <div class="post-av" style="background:linear-gradient(135deg,#34d399,#059669)">🐹</div>
+              <div class="post-meta">
+                <div class="post-name">Bolinha <span class="breed-chip">Hamster Anão</span></div>
+                <div class="post-loc">📍 Curitiba, PR · 8h atrás</div>
+              </div>
+              <button class="follow-btn" onclick="toggleFollow(this)">+ Seguir</button>
+              <button class="more-btn">···</button>
+            </div>
+            <div class="post-media grad-3">
+              <div class="media-tag">🎡 Hora do exercício!</div>
+            </div>
+            <div class="post-body">
+              <p class="post-text">10km na rodinha hoje! Atleta olímpico em formação 🏅🐾</p>
+              <p class="post-tags">#HamsterLife #Atleta #Curitiba</p>
+              <div class="post-actions">
+                <button class="act-btn" id="like-3" onclick="toggleLike('like-3','lc-3')">🤍 <span id="lc-3">214</span></button>
+                <button class="act-btn">💬 56</button>
+                <button class="act-btn">↗️ Compartilhar</button>
+                <button class="act-btn ml-auto">🔖</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Right Panel -->
+        <aside class="right-panel">
+          <div class="rp-card">
+            <div class="rp-title">Sugestões para seguir</div>
+            <div class="suggest-list">
+              <div class="suggest-item">
+                <div class="sug-av" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">🦜</div>
+                <div><div class="sug-name">Louro</div><div class="sug-sub">Calopsita · PR</div></div>
+                <button class="btn-xs" onclick="this.textContent='✓'">Seguir</button>
+              </div>
+              <div class="suggest-item">
+                <div class="sug-av" style="background:linear-gradient(135deg,#f472b6,#db2777)">🐰</div>
+                <div><div class="sug-name">Fofinha</div><div class="sug-sub">Coelho · MG</div></div>
+                <button class="btn-xs" onclick="this.textContent='✓'">Seguir</button>
+              </div>
+              <div class="suggest-item">
+                <div class="sug-av" style="background:linear-gradient(135deg,#fbbf24,#d97706)">🐠</div>
+                <div><div class="sug-name">Nemo</div><div class="sug-sub">Peixe Palhaço · SP</div></div>
+                <button class="btn-xs" onclick="this.textContent='✓'">Seguir</button>
+              </div>
+            </div>
+          </div>
+          <div class="rp-card">
+            <div class="rp-title">⚡ Próximos eventos</div>
+            <div class="event-list">
+              <div class="event-item">
+                <div class="event-date">15<br/><span>Mai</span></div>
+                <div><div class="event-name">Banho do Thor</div><div class="event-sub">PetShop Vila Nova · 10h</div></div>
+              </div>
+              <div class="event-item">
+                <div class="event-date">18<br/><span>Mai</span></div>
+                <div><div class="event-name">Consulta Vacina</div><div class="event-sub">Dr. Carlos · 14h</div></div>
+              </div>
+            </div>
+            <button class="btn-ghost btn-sm w-full" onclick="goSection('agenda')">Ver agenda completa</button>
+          </div>
+          <div class="rp-card rp-sos">
+            <div class="sos-header">🆘 SOS Pet ativo</div>
+            <div class="sos-alert">
+              <div class="sos-pet">🐕</div>
+              <div>
+                <div class="sos-name">Rex — Perdido</div>
+                <div class="sos-dist">📍 2,3 km de você</div>
+              </div>
+              <button class="btn-xs btn-red" onclick="goSection('sos')">Ajudar</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: MAPA ─── -->
+  <section class="section" id="section-mapa">
+    <div class="section-header">
+      <h1 class="section-title">Explorar Perto <span>📍</span></h1>
+      <div class="location-chip">📍 São Paulo, SP <button class="link-btn">Mudar</button></div>
+    </div>
+
+    <div class="search-bar-big">
+      <span>🔍</span>
+      <input type="text" placeholder="Buscar veterinários, petshops, parques, hotéis pet..."/>
+      <button class="btn-primary btn-sm">Buscar</button>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active" onclick="setFilter(this)">🗺️ Todos</button>
+      <button class="filter-chip" onclick="setFilter(this)">🩺 Veterinários</button>
+      <button class="filter-chip" onclick="setFilter(this)">✂️ Banho & Tosa</button>
+      <button class="filter-chip" onclick="setFilter(this)">🌿 Parques & Praias</button>
+      <button class="filter-chip" onclick="setFilter(this)">🏨 Pet-Friendly</button>
+      <button class="filter-chip" onclick="setFilter(this)">🛒 Pet Shops</button>
+      <button class="filter-chip" onclick="setFilter(this)">☕ Cafés & Restaurantes</button>
+      <button class="filter-chip" onclick="setFilter(this)">🏋️ Adestramento</button>
+    </div>
+
+    <div class="mapa-layout">
+      <div class="mapa-list">
+        <div class="place-card">
+          <div class="place-icon" style="background:#e8f5e9">🩺</div>
+          <div class="place-info">
+            <div class="place-name">Clínica Vet PetVida</div>
+            <div class="place-tags"><span class="ptag">Veterinário</span><span class="ptag green">Aberto agora</span></div>
+            <div class="place-meta">⭐ 4.9 (312 avaliações) · 0,8 km</div>
+            <div class="place-detail">Segunda a Sábado · 7h–20h · Emergência 24h</div>
+          </div>
+          <div class="place-actions">
+            <button class="btn-primary btn-xs" onclick="goSection('consulta')">Agendar</button>
+            <button class="btn-ghost btn-xs">🗺️ Rota</button>
+          </div>
+        </div>
+        <div class="place-card">
+          <div class="place-icon" style="background:#e3f2fd">✂️</div>
+          <div class="place-info">
+            <div class="place-name">PetShop Elegance</div>
+            <div class="place-tags"><span class="ptag">Banho & Tosa</span><span class="ptag orange">Fecha às 18h</span></div>
+            <div class="place-meta">⭐ 4.7 (198 avaliações) · 1,2 km</div>
+            <div class="place-detail">Seg–Sex 8h–18h · Sáb 8h–14h · A partir de R$45</div>
+          </div>
+          <div class="place-actions">
+            <button class="btn-primary btn-xs" onclick="goSection('agenda')">Agendar</button>
+            <button class="btn-ghost btn-xs">🗺️ Rota</button>
+          </div>
+        </div>
+        <div class="place-card">
+          <div class="place-icon" style="background:#f3e5f5">🌿</div>
+          <div class="place-info">
+            <div class="place-name">Parque Estadual da Cantareira</div>
+            <div class="place-tags"><span class="ptag">Parque</span><span class="ptag blue">Pet Welcome</span></div>
+            <div class="place-meta">⭐ 4.8 (1.204 avaliações) · 3,5 km</div>
+            <div class="place-detail">Aberto todos os dias · Gratuito · Leash obrigatória</div>
+          </div>
+          <div class="place-actions">
+            <button class="btn-primary btn-xs" onclick="goSection('locais')">Ver mais</button>
+            <button class="btn-ghost btn-xs">🗺️ Rota</button>
+          </div>
+        </div>
+        <div class="place-card">
+          <div class="place-icon" style="background:#fff3e0">🏨</div>
+          <div class="place-info">
+            <div class="place-name">Hotel Boutique Pet Friends</div>
+            <div class="place-tags"><span class="ptag">Hotel Pet-Friendly</span></div>
+            <div class="place-meta">⭐ 4.6 (87 avaliações) · 2,1 km</div>
+            <div class="place-detail">Aceita pets até 20kg · Diária a partir de R$180</div>
+          </div>
+          <div class="place-actions">
+            <button class="btn-primary btn-xs">Reservar</button>
+            <button class="btn-ghost btn-xs">🗺️ Rota</button>
+          </div>
+        </div>
+        <div class="place-card">
+          <div class="place-icon" style="background:#fce4ec">☕</div>
+          <div class="place-info">
+            <div class="place-name">Café Patinhas — Pet Café</div>
+            <div class="place-tags"><span class="ptag">Café</span><span class="ptag green">Aberto agora</span></div>
+            <div class="place-meta">⭐ 4.9 (560 avaliações) · 0,4 km</div>
+            <div class="place-detail">Pet no salão · Menu especial para pets · Wi-Fi</div>
+          </div>
+          <div class="place-actions">
+            <button class="btn-primary btn-xs" onclick="goSection('locais')">Ver mais</button>
+            <button class="btn-ghost btn-xs">🗺️ Rota</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mapa-visual">
+        <div class="map-placeholder">
+          <div class="map-bg"></div>
+          <div class="map-pin" style="top:35%;left:45%">🩺<span class="pin-label">PetVida</span></div>
+          <div class="map-pin" style="top:55%;left:60%">✂️<span class="pin-label">Elegance</span></div>
+          <div class="map-pin" style="top:25%;left:30%">🌿<span class="pin-label">Cantareira</span></div>
+          <div class="map-pin" style="top:65%;left:38%">🏨<span class="pin-label">Pet Friends</span></div>
+          <div class="map-pin" style="top:48%;left:52%">☕<span class="pin-label">Patinhas</span></div>
+          <div class="map-center">📍<br/><small>Você</small></div>
+          <div class="map-label">Mapa interativo — integração com Google Maps</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: LOJAS ─── -->
+  <section class="section" id="section-lojas">
+    <div class="section-header">
+      <h1 class="section-title">Lojas & Promoções <span>🛒</span></h1>
+      <div class="header-tabs">
+        <button class="htab active" onclick="setHTab(this,'lojas')">🔥 Promoções</button>
+        <button class="htab" onclick="setHTab(this,'lojas')">🍖 Rações</button>
+        <button class="htab" onclick="setHTab(this,'lojas')">🎾 Brinquedos</button>
+        <button class="htab" onclick="setHTab(this,'lojas')">👗 Roupas & Acessórios</button>
+        <button class="htab" onclick="setHTab(this,'lojas')">✂️ Serviços</button>
+      </div>
+    </div>
+
+    <!-- Banner destaque -->
+    <div class="promo-banner">
+      <div class="promo-banner-text">
+        <span class="banner-tag">⚡ Oferta relâmpago · Termina em 02:14:33</span>
+        <h2>PetShop Vida Animal</h2>
+        <p>50% OFF em toda linha de rações Royal Canin + frete grátis acima de R$150</p>
+        <button class="btn-primary btn-sm">Ver oferta →</button>
+      </div>
+      <div class="promo-banner-img">🐾🛍️</div>
+    </div>
+
+    <div class="store-grid">
+      <div class="store-card">
+        <div class="store-img" style="background:linear-gradient(135deg,#f6d365,#fda085)">
+          <div class="discount-badge">-40%</div>
+          <span>🍖</span>
+        </div>
+        <div class="store-info">
+          <div class="store-cat">Ração</div>
+          <div class="store-name">Royal Canin Adult 15kg</div>
+          <div class="store-price">
+            <span class="old-price">R$ 289,90</span>
+            <span class="new-price">R$ 173,94</span>
+          </div>
+          <div class="store-meta">⭐ 4.8 · PetShop Vida Animal · 1,2km</div>
+          <button class="btn-primary btn-xs w-full">Comprar / Reservar</button>
+        </div>
+      </div>
+      <div class="store-card">
+        <div class="store-img" style="background:linear-gradient(135deg,#a1c4fd,#c2e9fb)">
+          <div class="discount-badge">-30%</div>
+          <span>🎾</span>
+        </div>
+        <div class="store-info">
+          <div class="store-cat">Brinquedo</div>
+          <div class="store-name">Kit 5 Brinquedos Interativos</div>
+          <div class="store-price">
+            <span class="old-price">R$ 89,90</span>
+            <span class="new-price">R$ 62,93</span>
+          </div>
+          <div class="store-meta">⭐ 4.6 · PetLand · 2,3km</div>
+          <button class="btn-primary btn-xs w-full">Comprar / Reservar</button>
+        </div>
+      </div>
+      <div class="store-card">
+        <div class="store-img" style="background:linear-gradient(135deg,#fbc2eb,#a18cd1)">
+          <div class="discount-badge">-25%</div>
+          <span>👗</span>
+        </div>
+        <div class="store-info">
+          <div class="store-cat">Roupa</div>
+          <div class="store-name">Camiseta Verão Pet — P ao GG</div>
+          <div class="store-price">
+            <span class="old-price">R$ 59,90</span>
+            <span class="new-price">R$ 44,93</span>
+          </div>
+          <div class="store-meta">⭐ 4.5 · ModaPet · Online</div>
+          <button class="btn-primary btn-xs w-full">Comprar / Reservar</button>
+        </div>
+      </div>
+      <div class="store-card">
+        <div class="store-img" style="background:linear-gradient(135deg,#84fab0,#8fd3f4)">
+          <span>✂️</span>
+        </div>
+        <div class="store-info">
+          <div class="store-cat">Serviço</div>
+          <div class="store-name">Banho + Tosa Completa</div>
+          <div class="store-price">
+            <span class="new-price">R$ 65,00</span>
+          </div>
+          <div class="store-meta">⭐ 4.9 · Elegance Pet · 1,2km</div>
+          <button class="btn-primary btn-xs w-full" onclick="goSection('agenda')">Agendar</button>
+        </div>
+      </div>
+      <div class="store-card">
+        <div class="store-img" style="background:linear-gradient(135deg,#f093fb,#f5576c)">
+          <div class="discount-badge">-15%</div>
+          <span>💊</span>
+        </div>
+        <div class="store-info">
+          <div class="store-cat">Saúde</div>
+          <div class="store-name">Antipulgas Frontline 3 doses</div>
+          <div class="store-price">
+            <span class="old-price">R$ 119,00</span>
+            <span class="new-price">R$ 101,15</span>
+          </div>
+          <div class="store-meta">⭐ 4.9 · Farmácia Pet · Online</div>
+          <button class="btn-primary btn-xs w-full">Comprar / Reservar</button>
+        </div>
+      </div>
+      <div class="store-card">
+        <div class="store-img" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">
+          <span>🏨</span>
+        </div>
+        <div class="store-info">
+          <div class="store-cat">Hospedagem</div>
+          <div class="store-name">Hotel Pet — 3 diárias</div>
+          <div class="store-price">
+            <span class="new-price">R$ 180,00/noite</span>
+          </div>
+          <div class="store-meta">⭐ 4.7 · Pet Friends Hotel · 2,1km</div>
+          <button class="btn-primary btn-xs w-full" onclick="goSection('petsitter')">Ver mais</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: CONSULTA ONLINE ─── -->
+  <section class="section" id="section-consulta">
+    <div class="section-header">
+      <h1 class="section-title">Consulta Online <span>🩺</span></h1>
+    </div>
+
+    <div class="consulta-layout">
+      <div class="vet-list-panel">
+        <div class="search-bar-sm">
+          <span>🔍</span>
+          <input type="text" placeholder="Buscar veterinário..."/>
+        </div>
+        <div class="vet-status-filter">
+          <button class="filter-chip active" onclick="setFilter(this)">Todos</button>
+          <button class="filter-chip" onclick="setFilter(this)">🟢 Online agora</button>
+          <button class="filter-chip" onclick="setFilter(this)">⭐ Top avaliados</button>
+        </div>
+        <div class="vet-cards">
+          <div class="vet-card active-vet" onclick="selectVet(this)">
+            <div class="vet-av">👨‍⚕️</div>
+            <div class="vet-info-block">
+              <div class="vet-name-big">Dr. Carlos Silva <span class="online-dot"></span></div>
+              <div class="vet-spec">Clínico Geral · Dermatologia</div>
+              <div class="vet-rating">⭐ 4.9 · 312 consultas</div>
+            </div>
+            <div class="vet-price-block">
+              <div class="vet-price">R$ 89</div>
+              <div class="vet-wait">~5 min</div>
+            </div>
+          </div>
+          <div class="vet-card" onclick="selectVet(this)">
+            <div class="vet-av">👩‍⚕️</div>
+            <div class="vet-info-block">
+              <div class="vet-name-big">Dra. Ana Beatriz <span class="online-dot"></span></div>
+              <div class="vet-spec">Cirurgia · Ortopedia</div>
+              <div class="vet-rating">⭐ 4.8 · 215 consultas</div>
+            </div>
+            <div class="vet-price-block">
+              <div class="vet-price">R$ 110</div>
+              <div class="vet-wait">~12 min</div>
+            </div>
+          </div>
+          <div class="vet-card" onclick="selectVet(this)">
+            <div class="vet-av">🧑‍⚕️</div>
+            <div class="vet-info-block">
+              <div class="vet-name-big">Dr. Marcos Lima</div>
+              <div class="vet-spec">Nutrição · Homeopatia</div>
+              <div class="vet-rating">⭐ 4.7 · 89 consultas</div>
+            </div>
+            <div class="vet-price-block">
+              <div class="vet-price">R$ 75</div>
+              <div class="vet-wait">Agendado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-panel">
+        <div class="chat-header">
+          <div class="chat-vet-av">👨‍⚕️</div>
+          <div>
+            <div class="chat-vet-name">Dr. Carlos Silva</div>
+            <div class="chat-vet-status"><span class="online-dot"></span> Online · Respondendo em ~5 min</div>
+          </div>
+          <div class="chat-actions">
+            <button class="icon-btn" title="Videochamada">📹</button>
+            <button class="icon-btn" title="Chamada">📞</button>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chat-msgs">
+          <div class="msg-date">Hoje, 14:32</div>
+          <div class="msg received">
+            <div class="msg-bubble">Olá! Sou o Dr. Carlos. Como posso ajudar o Thor hoje? 🐾</div>
+          </div>
+          <div class="msg sent">
+            <div class="msg-bubble">Oi Doutor! O Thor está coçando muito a orelha há 2 dias. Pode ser otite?</div>
+          </div>
+          <div class="msg received">
+            <div class="msg-bubble">Entendi! Pode ser sim. Você pode enviar uma foto da orelha dele para eu avaliar melhor?</div>
+          </div>
+          <div class="msg sent">
+            <div class="msg-bubble">Claro! Vou tirar agora 📸</div>
+          </div>
+          <div class="msg sent">
+            <div class="msg-bubble file-msg">📎 <span>orelha_thor.jpg</span></div>
+          </div>
+          <div class="msg received">
+            <div class="msg-bubble">Obrigado pela foto! Vejo uma leve vermelhidão. Recomendo limpeza com solução otológica 2x ao dia por 5 dias. Vou prescrever um produto específico 💊</div>
+          </div>
+        </div>
+
+        <div class="chat-attach-preview" id="attach-area" style="display:none">
+          <div class="attach-item">📷 Foto selecionada <button onclick="clearAttach()">✕</button></div>
+        </div>
+
+        <div class="chat-input-row">
+          <button class="icon-btn" onclick="attachFile()">📎</button>
+          <button class="icon-btn" onclick="attachFile()">📷</button>
+          <button class="icon-btn" onclick="attachFile()">🎥</button>
+          <input type="text" id="chat-input" class="chat-input" placeholder="Descreva os sintomas do seu pet..." onkeydown="sendMsg(event)"/>
+          <button class="btn-primary btn-sm" onclick="sendMsg({key:'Enter'})">Enviar</button>
+        </div>
+      </div>
+
+      <div class="consulta-info-panel">
+        <div class="rp-card">
+          <div class="rp-title">📋 Pet em consulta</div>
+          <div class="pet-consult-info">
+            <div class="pet-consult-av">🐶</div>
+            <div>
+              <div class="pet-cn">Thor</div>
+              <div class="pet-cs">Golden · 3 anos · 28kg</div>
+            </div>
+          </div>
+          <div class="pet-health-quick">
+            <div class="phq-item"><span>💉</span> Vacinado</div>
+            <div class="phq-item warn"><span>⚠️</span> Alergia a frango</div>
+            <div class="phq-item"><span>💊</span> Sem medicação</div>
+          </div>
+        </div>
+        <div class="rp-card">
+          <div class="rp-title">📝 Histórico recente</div>
+          <div class="history-list">
+            <div class="hist-item">
+              <div class="hist-icon">💉</div>
+              <div><div class="hist-name">Vacina V10</div><div class="hist-date">15 Jan 2025</div></div>
+            </div>
+            <div class="hist-item">
+              <div class="hist-icon">🩺</div>
+              <div><div class="hist-name">Consulta de rotina</div><div class="hist-date">02 Mar 2025</div></div>
+            </div>
+            <div class="hist-item">
+              <div class="hist-icon">✂️</div>
+              <div><div class="hist-name">Banho e tosa</div><div class="hist-date">20 Abr 2025</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: MENSAGENS ─── -->
+  <section class="section" id="section-mensagens">
+    <div class="section-header">
+      <h1 class="section-title">Mensagens <span>💬</span></h1>
+      <button class="btn-primary btn-sm">+ Nova conversa</button>
+    </div>
+
+    <div class="msgs-layout">
+      <div class="msgs-list-panel">
+        <div class="search-bar-sm"><span>🔍</span><input type="text" placeholder="Buscar conversa..."/></div>
+        <div class="conv-tabs">
+          <button class="ctab active" onclick="setCTab(this)">Todos</button>
+          <button class="ctab" onclick="setCTab(this)">Veterinários</button>
+          <button class="ctab" onclick="setCTab(this)">Lojas</button>
+          <button class="ctab" onclick="setCTab(this)">Amigos Pets</button>
+        </div>
+        <div class="conv-list">
+          <div class="conv-item active" onclick="openConv(this,'Dr. Carlos Silva','👨‍⚕️')">
+            <div class="conv-av">👨‍⚕️</div>
+            <div class="conv-info">
+              <div class="conv-name">Dr. Carlos Silva <span class="online-dot"></span></div>
+              <div class="conv-preview">Receita enviada. Qualquer dúvida...</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">14:32</div><div class="conv-unread">2</div></div>
+          </div>
+          <div class="conv-item" onclick="openConv(this,'PetShop Elegance','✂️')">
+            <div class="conv-av">✂️</div>
+            <div class="conv-info">
+              <div class="conv-name">PetShop Elegance</div>
+              <div class="conv-preview">Agendamento confirmado para...</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">10:15</div><div class="conv-unread">1</div></div>
+          </div>
+          <div class="conv-item" onclick="openConv(this,'Dra. Ana Beatriz','👩‍⚕️')">
+            <div class="conv-av">👩‍⚕️</div>
+            <div class="conv-info">
+              <div class="conv-name">Dra. Ana Beatriz</div>
+              <div class="conv-preview">Resultado do exame ficou pronto</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">Ontem</div></div>
+          </div>
+          <div class="conv-item" onclick="openConv(this,'PetLand Loja','🛒')">
+            <div class="conv-av">🛒</div>
+            <div class="conv-info">
+              <div class="conv-name">PetLand Loja</div>
+              <div class="conv-preview">Seu pedido foi enviado! Rastreio:</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">Segunda</div></div>
+          </div>
+          <div class="conv-item" onclick="openConv(this,'Fofinha & Cia','🐰')">
+            <div class="conv-av">🐰</div>
+            <div class="conv-info">
+              <div class="conv-name">Fofinha & Cia</div>
+              <div class="conv-preview">Hahaha olha o Thor aqui! 😂</div>
+            </div>
+            <div class="conv-meta"><div class="conv-time">Dom</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="msgs-chat-panel">
+        <div class="chat-header">
+          <div class="chat-vet-av" id="conv-av">👨‍⚕️</div>
+          <div>
+            <div class="chat-vet-name" id="conv-name">Dr. Carlos Silva</div>
+            <div class="chat-vet-status"><span class="online-dot"></span> Online agora</div>
+          </div>
+          <div class="chat-actions">
+            <button class="icon-btn">📹</button>
+            <button class="icon-btn">📞</button>
+            <button class="icon-btn">⋯</button>
+          </div>
+        </div>
+        <div class="chat-messages" id="msgs-chat">
+          <div class="msg-date">Hoje</div>
+          <div class="msg received"><div class="msg-bubble">Bom dia! Receita enviada por e-mail. Qualquer dúvida pode chamar aqui! 🐾</div></div>
+          <div class="msg sent"><div class="msg-bubble">Muito obrigado doutor! O Thor está melhorando. 😊</div></div>
+          <div class="msg received"><div class="msg-bubble">Que ótimo! Continue o tratamento pelos 5 dias e me dê um retorno. 💊</div></div>
+        </div>
+        <div class="chat-input-row">
+          <button class="icon-btn">📎</button>
+          <button class="icon-btn">📷</button>
+          <input type="text" id="msgs-input" class="chat-input" placeholder="Digite uma mensagem..." onkeydown="sendMsgConv(event)"/>
+          <button class="btn-primary btn-sm" onclick="sendMsgConv({key:'Enter'})">Enviar</button>
+        </div>
+      </div>
+
+      <div class="msgs-info-panel">
+        <div class="rp-card">
+          <div class="rp-title">Sobre</div>
+          <div class="contact-info">
+            <div class="ci-av">👨‍⚕️</div>
+            <div class="ci-name">Dr. Carlos Silva</div>
+            <div class="ci-role">Médico Veterinário · CRMV 12345/SP</div>
+          </div>
+          <div class="ci-details">
+            <div class="ci-row">📱 (11) 99999-0000</div>
+            <div class="ci-row">📧 dr.carlos@petvida.com</div>
+            <div class="ci-row">📍 Clínica PetVida · SP</div>
+          </div>
+          <div class="ci-actions">
+            <button class="btn-primary btn-xs w-full" onclick="goSection('consulta')">Nova consulta</button>
+            <button class="btn-ghost btn-xs w-full">Ver perfil</button>
+          </div>
+        </div>
+        <div class="rp-card">
+          <div class="rp-title">📁 Arquivos</div>
+          <div class="file-list">
+            <div class="file-item">📄 receita_04mai.pdf</div>
+            <div class="file-item">🖼️ exame_sangue.jpg</div>
+            <div class="file-item">📋 prontuario_thor.pdf</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: AGENDA ─── -->
+  <section class="section" id="section-agenda">
+    <div class="section-header">
+      <h1 class="section-title">Agenda <span>📅</span></h1>
+      <button class="btn-primary btn-sm" onclick="openModal('modal-agendar')">+ Novo agendamento</button>
+    </div>
+
+    <div class="agenda-layout">
+      <div class="agenda-main">
+        <!-- Calendário -->
+        <div class="cal-card">
+          <div class="cal-header">
+            <button class="cal-nav">‹</button>
+            <h3 class="cal-title">Maio 2025</h3>
+            <button class="cal-nav">›</button>
+          </div>
+          <div class="cal-grid">
+            <div class="cal-day-name">Dom</div><div class="cal-day-name">Seg</div><div class="cal-day-name">Ter</div>
+            <div class="cal-day-name">Qua</div><div class="cal-day-name">Qui</div><div class="cal-day-name">Sex</div><div class="cal-day-name">Sáb</div>
+            <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div>
+            <div class="cal-day">1</div><div class="cal-day">2</div>
+            <div class="cal-day today">3</div><div class="cal-day">4</div>
+            <div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div>
+            <div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day has-event">10</div><div class="cal-day">11</div>
+            <div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day has-event">14</div>
+            <div class="cal-day has-event">15</div><div class="cal-day">16</div><div class="cal-day">17</div>
+            <div class="cal-day has-event">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div>
+            <div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div>
+            <div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div>
+            <div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day">31</div>
+          </div>
+        </div>
+
+        <!-- Próximos eventos -->
+        <div class="event-timeline">
+          <h3 class="et-title">Próximos compromissos</h3>
+          <div class="et-list">
+            <div class="et-item et-banho">
+              <div class="et-dot"></div>
+              <div class="et-date">10 Mai · 10:00</div>
+              <div class="et-info">
+                <div class="et-name">✂️ Banho e Tosa — Thor</div>
+                <div class="et-local">PetShop Elegance · Rua das Flores, 123</div>
+              </div>
+              <div class="et-actions">
+                <button class="btn-xs">Reagendar</button>
+                <button class="btn-xs btn-red">Cancelar</button>
+              </div>
+            </div>
+            <div class="et-item et-consulta">
+              <div class="et-dot"></div>
+              <div class="et-date">15 Mai · 10:00</div>
+              <div class="et-info">
+                <div class="et-name">✂️ Banho — Thor</div>
+                <div class="et-local">PetShop Elegance · Confirmado</div>
+              </div>
+              <div class="et-actions">
+                <button class="btn-xs">Reagendar</button>
+                <button class="btn-xs btn-red">Cancelar</button>
+              </div>
+            </div>
+            <div class="et-item et-vacina">
+              <div class="et-dot"></div>
+              <div class="et-date">18 Mai · 14:00</div>
+              <div class="et-info">
+                <div class="et-name">💉 Vacina Antirrábica — Thor</div>
+                <div class="et-local">Dr. Carlos Silva · Clínica PetVida</div>
+              </div>
+              <div class="et-actions">
+                <button class="btn-xs">Reagendar</button>
+                <button class="btn-xs btn-red">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agenda-side">
+        <div class="rp-card">
+          <div class="rp-title">⏰ Lembretes automáticos</div>
+          <div class="reminder-list">
+            <label class="rem-item"><input type="checkbox" checked/> 💊 Vermífugo — a cada 3 meses</label>
+            <label class="rem-item"><input type="checkbox" checked/> 💉 Vacina V10 — anual</label>
+            <label class="rem-item"><input type="checkbox" checked/> ✂️ Banho — a cada 3 semanas</label>
+            <label class="rem-item"><input type="checkbox"/> 🩺 Check-up anual</label>
+            <label class="rem-item"><input type="checkbox" checked/> 🦟 Antipulgas — mensal</label>
+          </div>
+        </div>
+        <div class="rp-card">
+          <div class="rp-title">📊 Resumo do mês</div>
+          <div class="month-stats">
+            <div class="ms-item"><span class="ms-icon">✂️</span><span>2 banhos</span></div>
+            <div class="ms-item"><span class="ms-icon">🩺</span><span>1 consulta</span></div>
+            <div class="ms-item"><span class="ms-icon">💉</span><span>1 vacina</span></div>
+            <div class="ms-item"><span class="ms-icon">💊</span><span>Vermífugo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: MEU PET ─── -->
+  <section class="section" id="section-meu-pet">
+    <div class="section-header">
+      <h1 class="section-title">Meu Pet <span>🐶</span></h1>
+      <button class="btn-ghost btn-sm">+ Adicionar pet</button>
+    </div>
+
+    <div class="pet-profile-layout">
+      <div class="pet-card-main">
+        <div class="pet-card-top">
+          <div class="pet-big-av">🐶</div>
+          <div class="pet-main-info">
+            <h2 class="pet-main-name">Thor</h2>
+            <div class="pet-main-breed">Golden Retriever · Macho</div>
+            <div class="pet-main-meta">📍 São Paulo · 3 anos e 2 meses</div>
+            <button class="btn-ghost btn-xs" onclick="openModal('modal-editpet')">✏️ Editar dados</button>
+          </div>
+          <div class="pet-qr-area" onclick="goSection('passaporte')">
+            <div class="qr-mock">
+              <div class="qr-inner">QR</div>
+            </div>
+            <div class="qr-label">Passaporte Digital</div>
+          </div>
+        </div>
+
+        <div class="pet-stats-row">
+          <div class="pstat"><div class="pstat-val">28 kg</div><div class="pstat-label">Peso</div></div>
+          <div class="pstat"><div class="pstat-val">58 cm</div><div class="pstat-label">Altura</div></div>
+          <div class="pstat"><div class="pstat-val">Curto</div><div class="pstat-label">Pelo</div></div>
+          <div class="pstat"><div class="pstat-val">Dourado</div><div class="pstat-label">Cor</div></div>
+          <div class="pstat"><div class="pstat-val">B+</div><div class="pstat-label">Tipo Sang.</div></div>
+        </div>
+      </div>
+
+      <div class="pet-info-grid">
+        <!-- Vacinas -->
+        <div class="info-card">
+          <div class="info-card-title">💉 Carteira de Vacinação</div>
+          <div class="vaccine-list">
+            <div class="vac-item ok"><span class="vac-icon">✅</span><div><div class="vac-name">V10 (Múltipla)</div><div class="vac-date">15 Jan 2025 · Próx: Jan 2026</div></div></div>
+            <div class="vac-item ok"><span class="vac-icon">✅</span><div><div class="vac-name">Antirrábica</div><div class="vac-date">18 Mai 2025 · Agendada!</div></div></div>
+            <div class="vac-item ok"><span class="vac-icon">✅</span><div><div class="vac-name">Gripe (Bordetella)</div><div class="vac-date">10 Mar 2025 · Próx: Set 2025</div></div></div>
+            <div class="vac-item warn"><span class="vac-icon">⏰</span><div><div class="vac-name">Giardíase</div><div class="vac-date">Vence em 30 dias!</div></div></div>
+          </div>
+        </div>
+
+        <!-- Alergias -->
+        <div class="info-card">
+          <div class="info-card-title">⚠️ Alergias & Restrições</div>
+          <div class="allergy-list">
+            <div class="allergy-item red"><span>🍗</span> Alergia a proteína de frango</div>
+            <div class="allergy-item yellow"><span>🌾</span> Intolerância a glúten</div>
+            <div class="allergy-item yellow"><span>🌿</span> Sensível a grama recém cortada</div>
+            <button class="btn-ghost btn-xs" onclick="openModal('modal-editpet')">+ Adicionar</button>
+          </div>
+        </div>
+
+        <!-- Procedimentos -->
+        <div class="info-card">
+          <div class="info-card-title">🔬 Procedimentos & Histórico</div>
+          <div class="proc-list">
+            <div class="proc-item"><div class="proc-icon">✂️</div><div><div class="proc-name">Castração</div><div class="proc-date">Jun 2022 · Dr. Marcos Lima</div></div></div>
+            <div class="proc-item"><div class="proc-icon">🦷</div><div><div class="proc-name">Limpeza dentária</div><div class="proc-date">Ago 2024 · Dr. Carlos Silva</div></div></div>
+            <div class="proc-item"><div class="proc-icon">🩻</div><div><div class="proc-name">Raio-X quadril</div><div class="proc-date">Nov 2024 · Displasia leve</div></div></div>
+          </div>
+        </div>
+
+        <!-- Medicações -->
+        <div class="info-card">
+          <div class="info-card-title">💊 Medicações & Controles</div>
+          <div class="med-list">
+            <div class="med-item"><div class="med-name">Antipulgas Frontline</div><div class="med-freq">Mensal · Última: 03 Mai</div><div class="med-status ok">Em dia</div></div>
+            <div class="med-item"><div class="med-name">Vermífugo Drontal</div><div class="med-freq">A cada 3 meses · Próxima: Jun</div><div class="med-status warn">Em 28 dias</div></div>
+            <div class="med-item"><div class="med-name">Suplemento articular</div><div class="med-freq">Diário · Com a refeição</div><div class="med-status ok">Em dia</div></div>
+          </div>
+        </div>
+
+        <!-- Peso -->
+        <div class="info-card info-card-wide">
+          <div class="info-card-title">⚖️ Histórico de Peso</div>
+          <div class="weight-chart">
+            <div class="wc-bar-group">
+              <div class="wc-bar" style="height:70%"><span>26.5</span></div><div class="wc-label">Jan</div>
+            </div>
+            <div class="wc-bar-group">
+              <div class="wc-bar" style="height:73%"><span>27.2</span></div><div class="wc-label">Fev</div>
+            </div>
+            <div class="wc-bar-group">
+              <div class="wc-bar" style="height:75%"><span>27.8</span></div><div class="wc-label">Mar</div>
+            </div>
+            <div class="wc-bar-group">
+              <div class="wc-bar active-bar" style="height:76%"><span>28.0</span></div><div class="wc-label">Abr</div>
+            </div>
+            <div class="wc-bar-group">
+              <div class="wc-bar" style="height:76%"><span>28.0</span></div><div class="wc-label">Mai</div>
+            </div>
+          </div>
+          <div class="weight-note">📊 Peso estável e dentro do ideal para a raça (27–34 kg)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: LOCAIS PET ─── -->
+  <section class="section" id="section-locais">
+    <div class="section-header">
+      <h1 class="section-title">Locais Pet-Friendly <span>🌿</span></h1>
+      <button class="btn-primary btn-sm" onclick="openModal('modal-local')">+ Divulgar local</button>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active" onclick="setFilter(this)">🗺️ Todos</button>
+      <button class="filter-chip" onclick="setFilter(this)">🌿 Parques</button>
+      <button class="filter-chip" onclick="setFilter(this)">☕ Cafés</button>
+      <button class="filter-chip" onclick="setFilter(this)">🍕 Restaurantes</button>
+      <button class="filter-chip" onclick="setFilter(this)">🏖️ Praias</button>
+      <button class="filter-chip" onclick="setFilter(this)">🏨 Hotéis</button>
+      <button class="filter-chip" onclick="setFilter(this)">🛍️ Lojas</button>
+    </div>
+
+    <div class="locais-grid">
+      <div class="local-card">
+        <div class="local-img" style="background:linear-gradient(135deg,#84fab0,#8fd3f4)">
+          <div class="local-img-content"><span style="font-size:3rem">🌿</span></div>
+          <div class="local-img-badge">🐾 Pet Welcome</div>
+        </div>
+        <div class="local-info">
+          <div class="local-name">Parque Estadual da Cantareira</div>
+          <div class="local-tags"><span class="ltag">Parque</span><span class="ltag green">Gratuito</span></div>
+          <div class="local-meta">⭐ 4.8 (1.204) · SP · 3,5 km</div>
+          <div class="local-desc">Trilhas ecológicas, área de lazer, permitido pets com guia. Imperdível!</div>
+          <div class="local-author">Divulgado por: @bianca_thor 🐾</div>
+          <div class="local-actions">
+            <button class="act-btn" id="like-l1" onclick="toggleLike('like-l1','lc-l1')">❤️ <span id="lc-l1">342</span></button>
+            <button class="act-btn">💬 89</button>
+            <button class="btn-ghost btn-xs">🗺️ Como chegar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-card">
+        <div class="local-img" style="background:linear-gradient(135deg,#f093fb,#f5576c)">
+          <div class="local-img-content"><span style="font-size:3rem">☕</span></div>
+          <div class="local-img-badge">🐾 Pet no salão</div>
+        </div>
+        <div class="local-info">
+          <div class="local-name">Café Patinhas</div>
+          <div class="local-tags"><span class="ltag">Café</span><span class="ltag blue">Menu Pet</span></div>
+          <div class="local-meta">⭐ 4.9 (560) · SP · 0,4 km</div>
+          <div class="local-desc">Ambiente aconchegante, menu especial para pets e Wi-Fi rápido. Perfeito para trabalhar com seu bichinho!</div>
+          <div class="local-author">Divulgado por: @cafepet_sp 🐾</div>
+          <div class="local-actions">
+            <button class="act-btn" id="like-l2" onclick="toggleLike('like-l2','lc-l2')">❤️ <span id="lc-l2">218</span></button>
+            <button class="act-btn">💬 44</button>
+            <button class="btn-ghost btn-xs">🗺️ Como chegar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-card">
+        <div class="local-img" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">
+          <div class="local-img-content"><span style="font-size:3rem">🏖️</span></div>
+          <div class="local-img-badge">🐾 Pets liberados</div>
+        </div>
+        <div class="local-info">
+          <div class="local-name">Praia de Maresias</div>
+          <div class="local-tags"><span class="ltag">Praia</span><span class="ltag orange">Sazonal</span></div>
+          <div class="local-meta">⭐ 4.7 (890) · SP · 180 km</div>
+          <div class="local-desc">Pets liberados fora da temporada (Abr–Nov). Água cristalina e areia branca com trilha para cães.</div>
+          <div class="local-author">Divulgado por: @praiacomthor 🐾</div>
+          <div class="local-actions">
+            <button class="act-btn" id="like-l3" onclick="toggleLike('like-l3','lc-l3')">🤍 <span id="lc-l3">567</span></button>
+            <button class="act-btn">💬 120</button>
+            <button class="btn-ghost btn-xs">🗺️ Como chegar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: SOS PET ─── -->
+  <section class="section" id="section-sos">
+    <div class="section-header">
+      <h1 class="section-title">SOS Pet <span>🆘</span></h1>
+      <button class="btn-red btn-sm" onclick="openModal('modal-sos')">🆘 Meu pet se perdeu!</button>
+    </div>
+
+    <div class="sos-banner">
+      <div>
+        <h2>Rede de Alerta Comunitária 🐾</h2>
+        <p>Quando um pet se perde, alertamos automaticamente todos os usuários num raio de 5km. Juntos encontramos mais rápido!</p>
+      </div>
+      <div class="sos-stats">
+        <div class="sos-stat"><div class="ss-val">847</div><div class="ss-label">Pets encontrados</div></div>
+        <div class="sos-stat"><div class="ss-val">96%</div><div class="ss-label">Taxa de sucesso</div></div>
+        <div class="sos-stat"><div class="ss-val">~4h</div><div class="ss-label">Tempo médio</div></div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">🔴 Alertas ativos perto de você</h3>
+    <div class="sos-cards">
+      <div class="sos-card">
+        <div class="sos-card-img" style="background:linear-gradient(135deg,#f6a35c,#e8604c)"><span style="font-size:3rem">🐕</span></div>
+        <div class="sos-card-info">
+          <div class="sos-card-status">🔴 Perdido há 6h</div>
+          <div class="sos-card-name">Rex — SRD, Preto e branco</div>
+          <div class="sos-card-meta">📍 2,3 km de você · Pinheiros, SP</div>
+          <div class="sos-card-desc">Macho, castrado, usa coleira azul com placa. Atende pelo nome Rex.</div>
+          <div class="sos-card-contact">📱 (11) 98765-4321 — Dona Maria</div>
+          <div class="sos-actions">
+            <button class="btn-red btn-xs">🆘 Vi esse pet!</button>
+            <button class="btn-ghost btn-xs">↗️ Compartilhar</button>
+          </div>
+        </div>
+      </div>
+      <div class="sos-card">
+        <div class="sos-card-img" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)"><span style="font-size:3rem">🐈</span></div>
+        <div class="sos-card-info">
+          <div class="sos-card-status">🟡 Perdido há 2 dias</div>
+          <div class="sos-card-name">Luna — Siamesa, creme e marrom</div>
+          <div class="sos-card-meta">📍 4,1 km de você · Vila Mariana, SP</div>
+          <div class="sos-card-desc">Fêmea, 2 anos, olhos azuis. Assustada com barulho.</div>
+          <div class="sos-card-contact">📱 (11) 91234-5678 — João Carlos</div>
+          <div class="sos-actions">
+            <button class="btn-red btn-xs">🆘 Vi esse pet!</button>
+            <button class="btn-ghost btn-xs">↗️ Compartilhar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: PET SITTER ─── -->
+  <section class="section" id="section-petsitter">
+    <div class="section-header">
+      <h1 class="section-title">Pet Sitter <span>🧳</span></h1>
+      <button class="btn-ghost btn-sm">Me cadastrar como sitter</button>
+    </div>
+
+    <div class="petsitter-hero">
+      <div>
+        <h2>Vai viajar? Seu pet em boas mãos! 🐾</h2>
+        <p>Rede de cuidadores verificados com câmera ao vivo, diário de atividades e relatórios diários para você curtir a viagem sem preocupação.</p>
+        <div class="hero-features">
+          <span>✅ Verificados</span>
+          <span>📹 Câmera ao vivo</span>
+          <span>📝 Diário diário</span>
+          <span>📍 GPS</span>
+          <span>🛡️ Seguro incluso</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Cuidadores próximos</h3>
+    <div class="sitter-grid">
+      <div class="sitter-card">
+        <div class="sitter-av">👩</div>
+        <div class="sitter-name">Ana Paula</div>
+        <div class="sitter-loc">📍 Pinheiros, SP · 1,2 km</div>
+        <div class="sitter-rating">⭐ 4.9 · 68 jobs</div>
+        <div class="sitter-tags"><span class="stag">🐶 Cães</span><span class="stag">🐱 Gatos</span></div>
+        <div class="sitter-price">R$ 80 / dia</div>
+        <div class="sitter-avail">✅ Disponível Jun 2025</div>
+        <button class="btn-primary btn-xs w-full">Contratar</button>
+      </div>
+      <div class="sitter-card">
+        <div class="sitter-av">👨</div>
+        <div class="sitter-name">Carlos Eduardo</div>
+        <div class="sitter-loc">📍 Vila Mariana, SP · 2,4 km</div>
+        <div class="sitter-rating">⭐ 4.8 · 42 jobs</div>
+        <div class="sitter-tags"><span class="stag">🐶 Cães</span><span class="stag">🐰 Coelhos</span></div>
+        <div class="sitter-price">R$ 65 / dia</div>
+        <div class="sitter-avail">✅ Disponível Mai–Jul</div>
+        <button class="btn-primary btn-xs w-full">Contratar</button>
+      </div>
+      <div class="sitter-card">
+        <div class="sitter-av">👩‍🦱</div>
+        <div class="sitter-name">Fernanda Costa</div>
+        <div class="sitter-loc">📍 Moema, SP · 3,1 km</div>
+        <div class="sitter-rating">⭐ 5.0 · 124 jobs</div>
+        <div class="sitter-tags"><span class="stag">🐶 Cães</span><span class="stag">🐱 Gatos</span><span class="stag">🦜 Aves</span></div>
+        <div class="sitter-price">R$ 95 / dia</div>
+        <div class="sitter-avail">📅 Apenas Julho</div>
+        <button class="btn-primary btn-xs w-full">Contratar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEÇÃO: PASSAPORTE DIGITAL ─── -->
+  <section class="section" id="section-passaporte">
+    <div class="section-header">
+      <h1 class="section-title">Passaporte Digital <span>📋</span></h1>
+      <button class="btn-primary btn-sm">⬇️ Baixar PDF</button>
+    </div>
+
+    <div class="passport-layout">
+      <div class="passport-card">
+        <div class="passport-header">
+          <div class="passport-flag">🐾</div>
+          <div>
+            <div class="passport-country">BRASIL — PAWAPP</div>
+            <div class="passport-type">PASSAPORTE ANIMAL · ANIMAL PASSPORT</div>
+          </div>
+        </div>
+        <div class="passport-body">
+          <div class="passport-photo">🐶</div>
+          <div class="passport-data">
+            <div class="pd-row"><span>Nome / Name:</span><strong>THOR</strong></div>
+            <div class="pd-row"><span>Espécie / Species:</span><strong>CANIS LUPUS FAMILIARIS</strong></div>
+            <div class="pd-row"><span>Raça / Breed:</span><strong>GOLDEN RETRIEVER</strong></div>
+            <div class="pd-row"><span>Sexo / Sex:</span><strong>MACHO / MALE</strong></div>
+            <div class="pd-row"><span>Nascimento / DoB:</span><strong>15/02/2022</strong></div>
+            <div class="pd-row"><span>Microchip:</span><strong>941000019876543</strong></div>
+            <div class="pd-row"><span>Tutor / Owner:</span><strong>JOÃO DA SILVA</strong></div>
+            <div class="pd-row"><span>CPF Tutor:</span><strong>123.456.789-00</strong></div>
+            <div class="pd-row"><span>Telefone / Phone:</span><strong>(11) 99999-0000</strong></div>
+          </div>
+          <div class="passport-qr">
+            <div class="qr-big">
+              <div class="qr-big-inner">QR</div>
+            </div>
+            <div class="qr-id">#PAW-2022-THOR</div>
+          </div>
+        </div>
+        <div class="passport-footer">
+          <div class="pf-item"><div class="pf-label">Última vacina</div><div class="pf-val">V10 · Jan 2025</div></div>
+          <div class="pf-item"><div class="pf-label">Válido até</div><div class="pf-val">Jan 2026</div></div>
+          <div class="pf-item"><div class="pf-label">CRMV Resp.</div><div class="pf-val">Dr. Carlos · 12345/SP</div></div>
+        </div>
+      </div>
+
+      <div class="passport-side">
+        <div class="rp-card">
+          <div class="rp-title">📱 Compartilhar Passaporte</div>
+          <p style="font-size:.82rem;color:var(--muted);margin-bottom:12px">Qualquer veterinário pode escanear o QR code para ver o histórico completo do Thor</p>
+          <div class="share-btns">
+            <button class="btn-primary btn-xs w-full">📤 Compartilhar link</button>
+            <button class="btn-ghost btn-xs w-full">📥 Baixar PDF</button>
+            <button class="btn-ghost btn-xs w-full">✉️ Enviar por e-mail</button>
+          </div>
+        </div>
+        <div class="rp-card">
+          <div class="rp-title">🌍 Validade Internacional</div>
+          <div class="intl-flags">
+            <span title="Brasil">🇧🇷</span>
+            <span title="Argentina">🇦🇷</span>
+            <span title="Portugal">🇵🇹</span>
+            <span title="Espanha">🇪🇸</span>
+          </div>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:8px">Reconhecido por clínicas parceiras no Brasil, Argentina, Portugal e Espanha.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════
+     MODAIS
+══════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-agendar" onclick="closeModalOuter(event,'modal-agendar')">
+  <div class="modal">
+    <div class="modal-header"><h3>Novo Agendamento 📅</h3><button class="modal-close" onclick="closeModal('modal-agendar')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label>Tipo</label>
+        <select class="form-select"><option>✂️ Banho e Tosa</option><option>🩺 Consulta Veterinária</option><option>💉 Vacinação</option><option>🏋️ Adestramento</option><option>📝 Outro</option></select>
+      </div>
+      <div class="form-group"><label>Pet</label><select class="form-select"><option>🐶 Thor</option></select></div>
+      <div class="form-group"><label>Data</label><input type="date" class="form-input"/></div>
+      <div class="form-group"><label>Horário</label><input type="time" class="form-input"/></div>
+      <div class="form-group"><label>Local / Profissional</label><input type="text" class="form-input" placeholder="Nome do estabelecimento ou profissional"/></div>
+      <div class="form-group"><label>Observações</label><textarea class="form-textarea" placeholder="Alguma informação importante..."></textarea></div>
+      <div class="modal-footer">
+        <button class="btn-ghost btn-sm" onclick="closeModal('modal-agendar')">Cancelar</button>
+        <button class="btn-primary btn-sm" onclick="closeModal('modal-agendar')">Salvar agendamento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-sos" onclick="closeModalOuter(event,'modal-sos')">
+  <div class="modal">
+    <div class="modal-header"><h3>🆘 Meu pet se perdeu!</h3><button class="modal-close" onclick="closeModal('modal-sos')">✕</button></div>
+    <div class="modal-body">
+      <div class="sos-alert-box">⚠️ Um alerta será enviado para todos os usuários num raio de <strong>5km</strong> da sua localização!</div>
+      <div class="form-group"><label>Pet</label><select class="form-select"><option>🐶 Thor</option></select></div>
+      <div class="form-group"><label>Foto recente</label><div class="upload-area">📷 Clique para enviar foto</div></div>
+      <div class="form-group"><label>Última localização</label><input type="text" class="form-input" placeholder="Bairro, rua ou ponto de referência..."/></div>
+      <div class="form-group"><label>Telefone para contato</label><input type="tel" class="form-input" placeholder="(11) 99999-0000"/></div>
+      <div class="form-group"><label>Informações adicionais</label><textarea class="form-textarea" placeholder="Cor da coleira, marcas especiais, comportamento..."></textarea></div>
+      <div class="modal-footer">
+        <button class="btn-ghost btn-sm" onclick="closeModal('modal-sos')">Cancelar</button>
+        <button class="btn-red btn-sm" onclick="closeModal('modal-sos')">🆘 Disparar alerta agora</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-local" onclick="closeModalOuter(event,'modal-local')">
+  <div class="modal">
+    <div class="modal-header"><h3>🌿 Divulgar local pet-friendly</h3><button class="modal-close" onclick="closeModal('modal-local')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label>Nome do local</label><input type="text" class="form-input" placeholder="Ex: Parque da Aclimação"/></div>
+      <div class="form-group"><label>Categoria</label>
+        <select class="form-select"><option>🌿 Parque</option><option>☕ Café</option><option>🍕 Restaurante</option><option>🏖️ Praia</option><option>🏨 Hotel</option><option>🛍️ Loja</option></select>
+      </div>
+      <div class="form-group"><label>Endereço</label><input type="text" class="form-input" placeholder="Rua, número, bairro, cidade"/></div>
+      <div class="form-group"><label>Descrição</label><textarea class="form-textarea" placeholder="Conte sobre o local, o que é permitido, dicas..."></textarea></div>
+      <div class="form-group"><label>Foto</label><div class="upload-area">📷 Adicionar foto</div></div>
+      <div class="modal-footer">
+        <button class="btn-ghost btn-sm" onclick="closeModal('modal-local')">Cancelar</button>
+        <button class="btn-primary btn-sm" onclick="closeModal('modal-local')">Publicar local</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-editpet" onclick="closeModalOuter(event,'modal-editpet')">
+  <div class="modal modal-lg">
+    <div class="modal-header"><h3>✏️ Editar dados do pet</h3><button class="modal-close" onclick="closeModal('modal-editpet')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-row-2">
+        <div class="form-group"><label>Nome</label><input type="text" class="form-input" value="Thor"/></div>
+        <div class="form-group"><label>Espécie</label><select class="form-select"><option>🐶 Cão</option><option>🐱 Gato</option><option>🦜 Ave</option><option>🐹 Roedor</option><option>🐠 Peixe</option></select></div>
+        <div class="form-group"><label>Raça</label><input type="text" class="form-input" value="Golden Retriever"/></div>
+        <div class="form-group"><label>Nascimento</label><input type="date" class="form-input" value="2022-02-15"/></div>
+        <div class="form-group"><label>Sexo</label><select class="form-select"><option>Macho</option><option>Fêmea</option></select></div>
+        <div class="form-group"><label>Peso (kg)</label><input type="number" class="form-input" value="28"/></div>
+        <div class="form-group"><label>Cor do pelo</label><input type="text" class="form-input" value="Dourado"/></div>
+        <div class="form-group"><label>Tipo de pelo</label><select class="form-select"><option>Curto</option><option>Médio</option><option>Longo</option></select></div>
+        <div class="form-group"><label>Microchip</label><input type="text" class="form-input" value="941000019876543"/></div>
+        <div class="form-group"><label>Tipo sanguíneo</label><input type="text" class="form-input" value="B+"/></div>
+      </div>
+      <div class="form-group"><label>Alergias conhecidas</label><textarea class="form-textarea">Proteína de frango, glúten</textarea></div>
+      <div class="form-group"><label>Observações médicas</label><textarea class="form-textarea">Displasia leve no quadril</textarea></div>
+      <div class="modal-footer">
+        <button class="btn-ghost btn-sm" onclick="closeModal('modal-editpet')">Cancelar</button>
+        <button class="btn-primary btn-sm" onclick="closeModal('modal-editpet')">Salvar alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<script src="app.js"></script>
 </body>
-</html>
+          </html>
